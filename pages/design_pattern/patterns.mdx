@@ -1,0 +1,168 @@
+import { Tabs } from "nextra/components";
+
+# Design Patterns
+
+## Observer Pattern
+
+![Observer Pattern](/patterns/observer.png)
+
+<Tabs items={["Implementation", "Example"]}>
+  <Tabs.Tab>
+
+```typescript
+// ============================
+// Interface
+// ============================
+interface Observer {
+  update(): void;
+}
+
+// ============================
+// Observable
+// ============================
+class Observable {
+  private observers: Observer[] = [];
+
+  attach(observer: Observer): void {
+    this.observers.push(observer);
+  }
+
+  detach(observer: Observer): void {
+    const index = this.observers.indexOf(observer);
+    if (index > -1) {
+      this.observers.splice(index, 1);
+    }
+  }
+
+  notifyObservers(): void {
+    console.log("Notifying all observers...");
+    this.observers.forEach((observer) => observer.update());
+  }
+}
+
+// ============================
+// Person
+// ============================
+class Person {
+  firstName: string;
+  lastName: string;
+  phoneNumber: string;
+  email: string;
+
+  constructor(
+    firstName: string,
+    lastName: string,
+    phoneNumber: string,
+    email: string
+  ) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.phoneNumber = phoneNumber;
+    this.email = email;
+  }
+}
+
+// ============================
+// Student
+// ============================
+class Student extends Person implements Observer {
+  matriculationNumber: string;
+
+  constructor(
+    firstName: string,
+    lastName: string,
+    phoneNumber: string,
+    email: string,
+    matriculationNumber: string
+  ) {
+    super(firstName, lastName, phoneNumber, email);
+    this.matriculationNumber = matriculationNumber;
+  }
+
+  update(): void {
+    console.log(
+      `${this.firstName} ${this.lastName} (Student) received an update.`
+    );
+  }
+}
+
+// ============================
+// Teacher
+// ============================
+class Teacher extends Person implements Observer {
+  constructor(
+    firstName: string,
+    lastName: string,
+    phoneNumber: string,
+    email: string
+  ) {
+    super(firstName, lastName, phoneNumber, email);
+  }
+
+  update(): void {
+    console.log(
+      `${this.firstName} ${this.lastName} (Teacher) received an update.`
+    );
+  }
+}
+
+// ============================
+// Address
+// ============================
+class Address {
+  addressField: string;
+
+  constructor(addressField: string) {
+    this.addressField = addressField;
+  }
+}
+```
+
+  </Tabs.Tab>
+  <Tabs.Tab>
+
+```typescript filename="index.ts"
+const observable = new Observable();
+
+const student = new Student(
+  "Jane",
+  "Doe",
+  "123-456-7890",
+  "jane.doe@example.com",
+  "S123456"
+);
+const teacher = new Teacher(
+  "John",
+  "Smith",
+  "987-654-3210",
+  "john.smith@example.com"
+);
+
+observable.attach(student);
+observable.attach(teacher);
+
+// Now let's simulate an event that leads to notifying observers
+observable.notifyObservers();
+
+// If needed, you could detach an observer
+// observable.detach(student)
+
+// Notify again to see that the student does not receive updates anymore
+observable.notifyObservers();
+```
+
+</Tabs.Tab>
+
+</Tabs>
+
+### Avantages
+
+- **Découplage entre les composants**: L'observer pattern permet de réduire les dépendances entre les composants du système en définissant une relation de type un-à-plusieurs entre les objets. Dans le cas de l'université, cela permet de modifier ou d'étendre les interfaces d'administration des cours sans perturber la logique métier sous-jacente.
+- **Flexibilité et réactivité**: Ce modèle favorise une réactivité immédiate aux changements. Par exemple, lorsqu'un cours est mis à jour (par exemple, un changement d'horaire), tous les utilisateurs concernés (étudiants, enseignants, personnel administratif) peuvent recevoir ces informations en temps réel, garantissant que tous les observateurs sont toujours synchronisés avec l'état actuel des cours.
+- **Facilité de maintenance et d'extension**: Ajouter de nouveaux types d'observateurs ou en retirer devient plus simple. Pour l'université, cela signifie que de nouvelles fonctionnalités, comme des notifications pour les changements de salle de cours ou les annulations, peuvent être intégrées sans modifier le système central, ce qui simplifie les mises à jour et la maintenance.
+
+### Inconvénients
+
+- **Complexité de la gestion des notifications**: La gestion des dépendances peut devenir complexe si le nombre d'observateurs augmente significativement. Chaque notification requiert une mise à jour de tous les observateurs, ce qui peut entraîner une surcharge si ces notifications deviennent trop fréquentes ou si les traitements associés sont coûteux en ressources.
+- **Risque de fuites de mémoire**: En Java et dans d'autres langages nécessitant une gestion explicite de la mémoire, il est crucial de bien détacher les observateurs qui ne sont plus nécessaires. L'échec de cette opération peut conduire à des fuites de mémoire, surtout si les observateurs sont instanciés mais jamais correctement supprimés.
+- **Difficultés de débogage et de suivi des erreurs**: Lorsque le flux du programme dépend de l'état dynamique des interactions entre sujets et observateurs, cela peut compliquer le débogage. Tracer quelle mise à jour provoque quel changement dans un système complexe avec de nombreux observateurs peut s'avérer difficile, augmentant ainsi le risque d'erreurs non détectées lors des mises à jour de l'état.

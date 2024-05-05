@@ -1,0 +1,142 @@
+# Constructions des versions
+
+Il est essentiel de clarifier le terme "version", dont la signification varie selon le contexte. Dans le développement de logiciels, une "version" désigne une application à un moment donné, avec ses spécifications techniques et fonctionnelles spécifiques. En exploitation IT, le terme englobe non seulement le logiciel mais aussi tous les éléments nécessaires à son fonctionnement optimal dans l'environnement de production.
+
+Ces pratiques sont guidées par les principes de l'ITIL, qui impliquent plusieurs processus complémentaires pour gérer l'évolution des systèmes d'information :
+
+- Gestion des changements : Organise le changement en acceptant, évaluant et planifiant les demandes de modification (RFC), et en contrôlant leur mise en œuvre.
+- Gestion des configurations : Documente les composants du système d'information modifiés ou affectés par le changement, essentiel pour maintenir l'intégrité du système.
+- Gestion des versions : Exécute les changements en développant et testant les nouvelles versions, et prépare des plans de restauration pour les échecs potentiels.
+
+La gestion efficace des versions dans un système d'information (SI) nécessite la mise en place préalable de processus de gestion des configurations et des changements :
+
+- Gestion des configurations : Cette gestion vise à conserver toutes les informations nécessaires pour l'exploitation du SI. Elle fournit également les données essentielles pour élaborer des environnements de test adéquats, facilitant ainsi la gestion des versions.
+- Gestion des changements : Ce processus sert de cadre pour l'enregistrement, l'évaluation et la planification des modifications demandées par les utilisateurs ou nécessaires pour l'exploitation. Il assure que toutes les modifications subissent un contrôle rigoureux avant leur implémentation.
+
+## Composants d'une version
+
+Bien que l'approche DevOps remette en question les pratiques traditionnelles, dans un cadre d'exploitation IT conventionnel, les versions deviennent une préoccupation majeure une fois les phases de développement ou d'acquisition terminées et que la mise en production est imminente. À ce stade, il est nécessaire d'assembler la version, c'est-à-dire d'identifier tous les éléments matériels, logiciels, et documentaires essentiels pour fournir le service attendu.
+
+Une version, au sens ITIL du terme, regroupe tous les éléments de configuration (EC) nécessaires pour répondre à une ou plusieurs demandes de changement (RFC). Cela inclut les logiciels à déployer, le matériel requis, les documentations associées, ainsi que les outils et procédures nécessaires au déploiement. Les exemples de versions peuvent inclure :
+
+- Un nouveau logiciel, qu'il soit standard ou développé en interne.
+- Une mise à jour logicielle.
+- La migration vers une solution SaaS.
+- Un nouveau site web ou une mise à jour, y compris les changements de contenu.
+- De nouveaux matériels tels que serveurs, réseaux, terminaux.
+- Des logiciels d'infrastructure.
+- Des modifications physiques dans les infrastructures ou les réseaux de communication.
+
+La première étape pour préparer un déploiement est d'obtenir les spécifications de la version. Cela peut se faire sous forme de Request for Change (RFC) pour les versions déjà en production, ou via tout document décrivant les exigences de l'élément principal à déployer, souvent une application. Ces RFC ou spécifications détaillent également le système cible, ce qui permet d'évaluer l'impact de la nouvelle version.
+
+Pour les versions constituées uniquement de solutions logicielles, cette tâche est grandement simplifiée grâce aux systèmes de gestion de versions (VCS) utilisés par les développeurs. Ces outils peuvent fournir un inventaire précis des fichiers à déployer ainsi que la version spécifique de chacun d'eux.
+
+## Versioning
+
+Les versions d'une solution logicielle ou matérielle peuvent être classées en différentes catégories, selon l'ampleur des modifications apportées :
+
+- Correctifs urgents : Contiennent uniquement des corrections immédiates pour des problèmes critiques.
+- Mise à jour mineure : Inclut des correctifs et des améliorations mineures au niveau fonctionnel.
+- Mise à jour majeure : Introduit de nouvelles fonctionnalités en plus des correctifs nécessaires.
+
+Chaque version est identifiée par un numéro unique, qui permet de tracer les composants inclus et la nature des changements. Par exemple, une mise à jour majeure pourrait être numérotée "GPAO V.4", une mineure "GPAO V.3.3", et un correctif urgent "GPAO V.3.2.2".
+
+Voici une explication simplifiée des types de versions avec un exemple de numérotation :
+
+| Type de version | Caractéristiques du type de version                                                                              | Numérotation de la version |
+| :-------------- | :--------------------------------------------------------------------------------------------------------------- | :------------------------- |
+| Type A          | Impacte significativement le service, apportant de nouvelles fonctionnalités et modifications importantes        | BS.1                       |
+| Type B          | Modifications limitées à certaines parties de l'application, comme l'amélioration des fonctionnalités existantes | BS.1.1                     |
+| Type C          | Apporte des ajustements ciblés à des fonctions spécifiques                                                       | BS.1.1.1                   |
+| Type D          | Nécessaire pour maintenir ou restaurer le niveau de service requis                                               | BS.1.1.1.1                 |
+
+Chaque version doit en outre référencer les éléments de configuration (EC) qui sont remplacés. Ceux-ci peuvent être très nombreux dans le cas de versions majeure, il ne faut donc pas sous-estimer le travail nécessaire à ce référencement.
+Pour ce qui concerne une application développée en interne, l'atelier de génie logiciel fournit généralement la liste des fichiers modifiés et gère lui-même la numérotation.
+Sinon c'est au stade des tests que l'on pourra obtenir cette information, à moins qu'elle ne figure pas dans la documentation fourni par l'éditeur, comme c'est souvent le cas des correctifs
+
+Pour simplifier, nous utiliserons par la suite les termes « solution » ou « service » pour désigner indifféremment toute version ou mise à jour, car le processus de déploiement reste identique. Ce qui varie principalement, c'est la quantité de ressources impliquées et l'étendue des tests nécessaires.
+
+Quant aux mises à jour urgentes, destinées à corriger les failles de sécurité ou à résoudre des dysfonctionnements critiques, elles doivent également suivre les mêmes procédures de contrôle. Cependant, ces procédures peuvent être adaptées pour accélérer le déploiement : bien que certains tests puissent être effectués post-déploiement, l'urgence de ces mises à jour requiert souvent une application plus rapide et des contrôles allégés.
+
+## Configuration nécessaire
+
+À l'exception des déploiements de correctifs urgents et des mises à jour mineures, il est crucial de contrôler la configuration nécessaire pour chaque version à déployer. Après avoir identifié les composants de la version, les exigences de configuration pour chacun d'eux doivent être vérifiées, y compris :
+
+- Le volume de stockage nécessaire pour les fichiers de programme et de données, si ces derniers résident sur le même système.
+- L'espace en mémoire vive requis pour le fonctionnement normal des programmes et des données, ainsi que lors des pics d'utilisation.
+- La puissance de calcul nécessaire, mesurée par la fréquence des processeurs ou des cœurs.
+- Les versions compatibles des systèmes d'exploitation, des bibliothèques, et des middleware ou frameworks.
+- La bande passante réseau utilisée pour les opérations internes (comme la synchronisation) ou pour les sauvegardes.
+
+Il est important de distinguer entre la configuration minimale, qui est le seuil en deçà duquel la solution ne fonctionnera pas, et la configuration optimale, qui est recommandée pour un fonctionnement fluide sans latence perceptible.
+
+La configuration minimale, souvent spécifiée par l'éditeur ou les développeurs, doit être vérifiée avant le déploiement pour s'assurer que les infrastructures matérielles sont adéquates. La configuration optimale, qui dépend du contexte d'utilisation (nombre d'utilisateurs, bande passante, infrastructure matérielle, etc.), peut nécessiter des adaptations basées sur une analyse préalable de l'existant et des prévisions d'utilisation future.
+
+Estimer la capacité nécessaire pour un service nouvellement déployé ou pour une migration peut s'avérer complexe. Pour cela, deux méthodes principales peuvent être employées : la modélisation et la simulation. Ces techniques aident à prédire les besoins en capacité en multipliant les performances unitaires observées par le nombre prévu d'utilisateurs.
+
+### La modélisation
+
+À partir de l'observation d'un système, nous définissons son comportement par des équations. Ces équations ne sont pas nécessairement complexes ; elles peuvent simplement consister à calculer la charge du processeur résultant de l'installation d'une application spécifique sur un système donné, avec un certain nombre d'utilisateurs.
+
+Nous élaborons un modèle hypothétique et vérifions son efficacité en comparant les résultats qu'il produit avec les variations réellement observées sur le système modélisé.
+
+Une fois le modèle validé, il peut être utilisé pour évaluer l'impact de l'ajout de services ou déterminer les configurations minimales en fonction du contexte d'utilisation. Il est crucial de baser ces modèles sur des configurations standardisées pour garantir leur fiabilité et leur applicabilité future.
+
+### La simulation
+
+La simulation est plus gourmande en temps et en ressources mais fournit souvent des résultats plus fiables que la modélisation, surtout quand la progression n'est pas linéaire.
+
+Simuler consiste à recréer un environnement représentatif de celui de production, y introduire les charges résultant des nouvelles versions, et observer les impacts. Pour cela, on utilise des outils de test spécialisés capables de simuler le nombre de transactions par seconde ou le nombre de connexions d'utilisateurs prévues.
+
+Les fournisseurs de progiciels et les solutions de virtualisation offrent également des utilitaires qui facilitent la simulation pour dimensionner un serveur de manière adéquate.
+
+L'évaluation de la configuration requise doit aussi prendre en compte les besoins en termes de disponibilité : les mécanismes de tolérance aux pannes doivent être intégrés avant ou durant le déploiement. La méthode de déploiement variera selon que la solution est déployée sur une grappe de serveurs, un serveur unique, ou encore sur une plateforme de serveur virtuel.
+
+## Classes de services
+
+Les caractéristiques techniques ne suffisent pas à elles seules pour planifier un déploiement : la manière dont la solution sera utilisée au sein de l'organisation est cruciale. Dans le cas d'une nouvelle installation ou de l'ajout de fonctionnalités inédites, l'impact sur le système d'information (SI) est généralement limité, à condition qu'il n'y ait pas d'effets négatifs sur les systèmes existants, tels que des incompatibilités ou une dégradation des performances.
+
+Cependant, il est plus fréquent que la solution à installer remplace des fonctionnalités déjà présentes dans le SI, que ce soit par une version antérieure du même logiciel ou par un autre logiciel que l'on substitue. Dans ces cas, il est nécessaire de migrer les fonctionnalités et les données existantes, ce qui risque d'interrompre les opérations en cours avec la solution actuelle.
+
+Pour évaluer l'impact d'un déploiement, on considère les critères suivants :
+
+- Le nombre d'utilisateurs impactés.
+- Le mode d'utilisation de la solution (en ligne ou en traitement par lots).
+- La criticité des processus soutenus par la solution.
+
+### Nombres d'utilisateurs
+
+Le nombre d'utilisateurs est déterminé par l'usage de la solution : une application monoposte est utilisée individuellement, même si elle est installée sur tous les postes de travail de l'entreprise. Il en va de même pour un logiciel client utilisé en frontal.
+
+Lorsque l'interruption de service se produit pendant la migration — ou même après, en cas d'erreur — elle affecte généralement une seule personne à la fois. Il est alors crucial de s'assurer que ces utilisateurs puissent, si nécessaire, accéder à un autre poste de travail. Si le déploiement est entièrement automatisé, il est préférable de le réaliser par lots pour éviter de paralyser toutes les instances en cas de problème lors du déploiement.
+
+Pour un logiciel serveur utilisé par des dizaines, des centaines, voire des milliers d'utilisateurs, la planification doit impérativement prendre en compte cet aspect, notamment pour l'allocation des ressources de test. Une telle précaution est essentielle pour minimiser l'impact sur la productivité et garantir la continuité des opérations durant le déploiement.
+
+### Mode d'utilisation
+
+Certaines solutions sont utilisées en mode conversationnel (en ligne), tandis que d'autres, chargées de tâches volumineuses et automatisées, fonctionnent en mode batch sans intervention utilisateur.
+Les solutions en ligne nécessitent une haute disponibilité, car les utilisateurs sont directement impactés par la moindre interruption de service.
+Même une courte interruption de quelques minutes doit être planifiée pour permettre aux utilisateurs de se déconnecter volontairement du système.
+Sans une telle planification, les utilisateurs risquent une interruption brutale de leur session et la perte potentielle de leur travail en cours.
+
+Quant aux applications batch, programmées pour une exécution différée, elles ne requièrent pas une disponibilité immédiate. Cependant, elles nécessitent des tests spécifiques, car les erreurs sont moins évidentes à détecter. Les tests pour ces applications sont souvent plus longs, car il est essentiel que l'ensemble des tâches s'effectue correctement pour que le test soit considéré comme validé.
+De plus, les processus batch prenant souvent plusieurs heures, cela allonge la durée nécessaire pour réaliser et valider les tests.
+
+### Criticité des processus soutenus
+
+Indépendamment du nombre d'utilisateurs, certains logiciels gèrent des opérations critiques pour le fonctionnement de l'organisation, telles que le traitement d'informations destinées à la clientèle, la génération d'indicateurs décisionnels, ou le contrôle de moyens de production. Ces logiciels requièrent une fiabilité supérieure à celle attendue pour une suite bureautique ou un serveur gérant des données moins critiques. Les logiciels responsables de fonctions essentielles ne peuvent se permettre aucune défaillance. Ainsi, la planification de leur déploiement doit inclure des phases de validation rigoureuse des données traitées avant la mise en service effective.
+
+Les différents critères—nombre d'utilisateurs, mode d'utilisation et criticité—doivent être évalués conjointement pour déterminer l'importance du déploiement. Par exemple, un service fréquemment utilisé en mode conversationnel n'implique pas nécessairement une grande disponibilité ou fiabilité, tandis qu'une solution utilisée sporadiquement par quelques décideurs peut être jugée critique.
+
+Les solutions déployées sur des serveurs ou des réseaux essentiels doivent souvent être migrées hors des heures d'utilisation normales, tandis que les déploiements sur les postes utilisateurs peuvent se faire progressivement durant les heures de travail habituelles, imposant des contraintes différentes sur l'utilisation des ressources humaines.
+
+L'évaluation détaillée de la criticité des processus est réalisée lors de l'analyse de l'existant ou lors de la validation du changement.
+
+Pour définir les classes de service et le niveau de risque des changements, une matrice de risque peut être utilisée. Les risques et leur probabilité de survenir sont évalués par un comité composé de spécialistes techniques et de responsables métiers lors de la demande de changement.
+
+![Matrice Impact / Probabilité](/matrices/impact_probability.png)
+
+À l'issue de cette première étape cruciale—car ses résultats conditionnent la suite du processus—il est essentiel de disposer des informations suivantes :
+
+Les références précises de tous les composants ajoutés, modifiés ou remplacés par la solution à déployer.
+Les contraintes à respecter pendant le déploiement pour garantir le niveau de service du système d'information existant et de la nouvelle solution.

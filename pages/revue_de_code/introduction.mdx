@@ -1,0 +1,106 @@
+# Revue de Code
+
+## Introduction
+
+Une revue de code est une inspection systématique du code source d'un logiciel, effectuée après chaque modification importante. Ce processus vise à détecter les erreurs, à améliorer la qualité du code, et à assurer la conformité aux normes de codage de l'organisation. Les revues de code peuvent être réalisées de manière formelle avec des réunions structurées ou de manière informelle via des outils de revue en ligne.
+
+Elles facilitent également le partage de connaissances entre les développeurs et contribuent à la cohérence globale du projet.
+
+## Objectifs
+
+La revue de code est une pratique essentielle qui vise à identifier les erreurs dès la phase de développement, bien avant que le code n'atteigne la production, pour éviter des conséquences importantes.
+
+Il existe principalement deux types d'erreurs susceptibles de survenir : les erreurs de conventions, qui enfreignent les standards établis pour le projet, et les erreurs fonctionnelles, qui compromettent la logique du code.
+
+Les erreurs fonctionnelles sont particulièrement critiques car elles peuvent entraîner des résultats incorrects et des défaillances systémiques.
+
+Les objectifs d'une revue de code incluent :
+
+- Éliminer les erreurs de logique pour assurer le bon fonctionnement du code.
+- Réduire les coûts de maintenance en identifiant et en corrigeant les défauts tôt.
+- Améliorer la lisibilité et la maintenabilité du code, facilitant ainsi les futures modifications.
+- Augmenter la qualité de la documentation du code, ce qui aide à comprendre et à utiliser le code plus efficacement.
+- Assurer l'adoption et l'application des standards et conventions de codage établis, garantissant ainsi une meilleure cohérence et qualité globales du projet.
+
+## Avantages & Inconvénients
+
+Peu importe l'outil utilisé durant un processus de développement, il présente toujours des avantages et des inconvénients.
+
+### Avantages
+
+- **Meilleure qualité du code** : le code est plus propre et conforme aux standards.
+- **Réduction des anomalies détectées lors de la recette** : moins de bugs sont identifiés dans les phases ultérieures.
+- **Amélioration de la communication** : facilite les échanges d'informations entre les membres de l'équipe.
+- **Augmentation et partage des connaissances** : contribue au développement professionnel des participants.
+- **Formation accélérée des nouveaux intervenants** : les nouveaux membres s'intègrent plus rapidement.
+- **Accélération du cycle de développement et de la phase de test** : les erreurs étant détectées plus tôt, le développement est plus rapide.
+- **Réduction de l'impact sur le support technique** : moins de problèmes sont reportés après le déploiement.
+- **Amélioration de la maintenabilité du code** : le code est plus facile à comprendre et à modifier.
+- **Augmentation de la satisfaction clientèle** : les clients bénéficient d'un produit de meilleure qualité.
+
+### Inconvénients
+
+- **Gestion des historiques et des versions plus lourde** : nécessite une organisation et une documentation accrues.
+- **Augmentation de la charge de développement** : les révisions de code prennent du temps et peuvent ralentir la production initiale.
+- **Coût plus élevé du projet** : le temps supplémentaire consacré aux revues peut augmenter les coûts de développement.
+
+## Technique de test
+
+Les revues de code sont reconnues pour leur efficacité à détecter des erreurs. En tant que technique de test statique, elles sont rapides à mettre en place et offrent un taux de détection d'erreurs très élevé.
+Un réviseur expérimenté peut identifier jusqu'à 70% des défauts, faisant de cette pratique un élément essentiel du processus de garantie qualité.
+
+## Méthodes
+
+Les revues de code peuvent être organisées et effectuées de diverses manières, chacune ayant ses propres méthodologies et objectifs. Voici les principaux types de revues de code :
+
+### Inspection
+
+Une inspection est une forme formelle de revue de code. Elle implique généralement une préparation minutieuse et une session de revue structurée dirigée par un modérateur formé. Les inspections sont très méthodiques et souvent utilisées dans des environnements où la qualité et la sécurité du code sont de la plus haute importance.
+
+### Walkthrough
+
+Un walkthrough est moins formel qu'une inspection. L'auteur du code guide les participants à travers son code afin d'expliquer la logique et de découvrir des erreurs. Cette méthode est souvent utilisée pour des transferts de connaissances et pour discuter de solutions alternatives.
+
+### Revue par les pairs
+
+La revue par les pairs est une pratique où plusieurs développeurs examinent le travail de leurs collègues. Cette approche encourage la collaboration et le partage de connaissances au sein de l'équipe, tout en identifiant les défauts potentiels dans le code.
+
+### Revue par-dessus l'épaule
+
+Dans ce type de revue, un collègue regarde simplement par-dessus l'épaule du développeur pendant qu'il code. Cette méthode informelle permet une rétroaction immédiate et est souvent utilisée pour résoudre des problèmes spécifiques ou transmettre des techniques de codage.
+
+### Revue personnelle
+
+La revue personnelle implique une auto-évaluation où le développeur examine son propre code avant de le soumettre pour une revue formelle. Cela peut aider à pré-capturer des erreurs évidentes et à améliorer la qualité globale du code soumis.
+
+## Livrables
+
+La revue de code produit plusieurs documents importants, qualifiés de livrables :
+
+- **Code retravaillé** : Version améliorée du code après correction des défauts identifiés.
+- **Journal des défauts et rapport d'analyse** : Document qui liste les erreurs trouvées et analyse les causes potentielles.
+- **Compte-rendu de revue et rapport d'amélioration** : Résumé des discussions, des suggestions d'amélioration et des actions à entreprendre.
+
+## Facteurs de succès
+
+Pour assurer l'efficacité des revues de code, plusieurs pratiques peuvent être adoptées :
+
+- **Suivre un processus de revue discipliné** : Adhérer à une méthode structurée pour garantir la cohérence et l'efficacité des revues.
+- **Choisir le type de revue adapté** : Sélectionner le format de revue le plus approprié en fonction du contexte et de l'objet inspecté.
+- **Établir des objectifs quantifiables et recueillir des données** : Définir des buts clairs et mesurer les résultats pour évaluer l'efficacité des revues.
+- **Considérer la revue comme une expérience positive** : Encourager une perception constructive des revues pour renforcer l'engagement de l'équipe.
+- **Inclure les testeurs dans les revues** : Permettre aux testeurs de participer pour bénéficier de leur perspective unique.
+- **Assurer la correction des problèmes identifiés** : Vérifier que les défauts détectés lors des revues sont effectivement résolus.
+- **Utiliser des check-lists et des guidelines** : Appliquer des listes de contrôle et des directives pour améliorer l'efficacité et la standardisation des revues.
+- **Former les participants** : Offrir une formation adéquate, surtout pour les revues formelles comme les inspections.
+- **Préparation des inspecteurs** : Demander aux inspecteurs d'étudier le code en amont pour une discussion plus productive lors de la réunion de revue.
+- **Planifier les ressources nécessaires** : S'assurer que les ressources requises sont disponibles et approuvées par la gestion.
+- **Amélioration continue de la qualité des revues** : Rechercher des moyens pour améliorer continuellement la qualité des revues.
+- **Limiter la portée de la revue** : Restriction du nombre de lignes de code à examiner et du rythme de la revue pour éviter la surcharge cognitive.
+- **Durée maximale** : Ne pas excéder 90 minutes pour une session de revue pour maintenir l'efficacité et la concentration des participants.
+
+## Conventions
+
+Durant la phase de développement, il est crucial de définir et d'adopter un formatteur de code ainsi qu'un linter, approuvés par toute l'équipe de projet. L'implémentation de ces outils garantit la qualité du code tout au long du développement.
+
+En intégrant ces outils dans la phase de pipeline CI/CD, nous nous assurons également que le code produit est non seulement bien formaté mais aussi fonctionnel et prêt à être déployé. Cette pratique contribue à maintenir des standards élevés de qualité et de cohérence du code au sein du projet.

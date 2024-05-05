@@ -1,0 +1,92 @@
+# Tests
+
+La phase de test est l'étape qui consomme la plus grande quantité de ressources lors de la mise en exploitation d'une nouvelle solution. Elle est déterminante pour l'acceptation de la solution et joue un rôle crucial pour garantir non seulement le fonctionnement optimal de la solution déployée, mais aussi et surtout la stabilité et l'efficacité du système cible après l'implémentation.
+
+![Cycle en V](/tests/cycle_en_v.png)
+
+Sachant qu'un test non documenté ne peut réellement être considéré comme un test, de nombreux documents sont utilisés et générés lors de la campagne de test qui précède un déploiement majeur.
+
+Le test doit être structuré autour de spécifications précises ainsi que de données et scénarios à tester. Chaque test pratiqué doit préciser les conditions de son exécution et les résultats obtenus.
+
+Les principaux documents nécessaires lors d'une campagne de test sont essentiels pour accompagner le développement ou l'acquisition d'une solution :
+
+- **Le plan d'assurance qualité** regroupe tous les éléments de la politique qualité de l'entreprise, qui définissent les objectifs assignés aux solutions IT ainsi que les méthodes de vérification.
+- **Le manuel de test** recense les normes et protocoles de test en vigueur au sein de l'organisation.
+- **Le plan de test stratégique** définit les objectifs qualitatifs, les techniques de test à employer, et les critères pour démarrer et arrêter les tests. Il catégorise les défauts en distinguant ceux qui peuvent être corrigés ultérieurement de ceux dont la gravité impose une correction immédiate avant de poursuivre le processus de mise en production.
+- **Les plans de tests opérationnels** adaptent les objectifs et critères du plan stratégique à chaque phase du cycle de vie de la solution, assurant une approche cohérente et adaptée à chaque étape du développement.
+- **La spécification de test** détermine comment chaque test doit être pratiqué : quand il sera effectué, sur quel élément, comment il sera réalisé, qui en sera responsable et quels résultats sont attendus. Une spécification distincte est généralement élaborée pour chaque type de test.
+- **Les scénarios de test** décrivent les suites d'opérations qui simulent les différentes conditions d'utilisation à tester. Ils impliquent l'utilisation de logiciels qui traitent un ensemble de données, incluant un jeu d'essai composé de données correctes et incorrectes à tester.
+- **Le résultat de test** documente le comportement obtenu en réponse à l'exécution du scénario.
+- **Le journal de test** liste tous les scénarios exécutés, en indiquant s'ils ont produit un résultat correct ou incorrect.
+- **Le rapport de test** fait la synthèse des résultats des tests pour la phase concernée, et le certificat de test atteste que les objectifs spécifiés dans le plan de test opérationnel ont été atteints.
+
+![Documents Tests](/tests/documents_tests.png)
+
+## Test de document
+
+Un test de document dans le cadre d'un déploiement d'application est une vérification minutieuse de tous les documents relatifs à l'application pour s'assurer qu'ils sont complets, précis, et à jour. Ces documents peuvent inclure des manuels d'utilisation, des guides d'installation, des spécifications techniques, et tout autre matériel de support nécessaire aux utilisateurs et aux techniciens pour comprendre et opérer l'application correctement.
+
+L'objectif de ces tests est de :
+
+- **Vérifier l'exactitude** : S'assurer que les informations fournies sont correctes et reflètent fidèlement les fonctionnalités et les opérations de l'application.
+- **Évaluer la complétude** : Confirmer que tous les aspects nécessaires de l'application sont couverts par la documentation, sans omissions.
+- **Assurer la clarté** : Les instructions doivent être claires et facilement compréhensibles par les utilisateurs finaux, minimisant ainsi le risque de confusion ou d'erreur dans l'utilisation de l'application.
+- **Tester l'utilisabilité** : S'assurer que la documentation est structurée de manière à être facilement navigable et utilisable dans des contextes pratiques.
+
+Ce processus est crucial pour garantir une transition sans heurt lors du déploiement de l'application et pour aider à minimiser le support technique post-déploiement dû à des questions ou des problèmes qui auraient pu être résolus par une documentation claire et précise.
+
+## Test d'ergonomie
+
+Un test d'ergonomie dans le cadre du déploiement d'une application, souvent appelé aussi test d'usabilité, est une évaluation conçue pour déterminer comment les utilisateurs interagissent avec l'application et à quel point cette interaction est efficace, confortable et satisfaisante. Ce type de test est crucial pour assurer que l'application est non seulement fonctionnelle mais aussi intuitive et facile à utiliser pour l'utilisateur final. Voici les principaux objectifs et méthodes impliqués dans un test d'ergonomie :
+
+Objectifs des tests d'ergonomie :
+
+- **Facilité d'utilisation** : S'assurer que les utilisateurs peuvent accomplir leurs tâches rapidement et facilement sans erreurs.
+- **Efficacité** : Évaluer si les utilisateurs peuvent réaliser leurs objectifs avec l'application de manière efficace.
+- **Apprentissage** : Mesurer combien de temps et d'effort il faut pour que les nouveaux utilisateurs maîtrisent l'application.
+- **Satisfaction** : Recueillir les impressions des utilisateurs sur l'application, incluant ce qu'ils apprécient et les points de frustration.
+- **Accessibilité** : Vérifier que l'application est utilisable par des personnes ayant divers types de handicap.
+
+## Test d'execution
+
+Un test d'exécution "boîte noire", également connu sous le nom de test fonctionnel, est une méthode de test logiciel où l'application est testée sans regarder la structure interne, le code source ou les détails de mise en œuvre. Les tests de boîte noire se concentrent uniquement sur les entrées fournies à l'application et les sorties attendues, sans considération pour la manière dont l'application traite les données en interne. Voici quelques éléments clés de cette méthode de test :
+
+Objectifs des tests de boîte noire :
+
+- **Validation de la fonctionnalité** : S'assurer que l'application fonctionne comme spécifié dans les exigences et répond correctement aux diverses entrées utilisateur.
+- **Identification des erreurs** : Détecter les erreurs de saisie, les défauts de traitement incorrect et les défaillances de l'application pour gérer ou répondre aux entrées.
+- **Vérification des interfaces utilisateur** : Confirmer que l'interface utilisateur répond aux actions de l'utilisateur de manière prévue.
+
+## Test de transaction
+
+Un test de transaction, dans le cadre d'un déploiement d'une application, est une forme de test logiciel qui se concentre spécifiquement sur la vérification des processus transactionnels au sein de l'application. Ce type de test est crucial pour les applications qui traitent des transactions commerciales, financières ou toute autre opération où des échanges de données ou des modifications de l'état doivent se produire de manière sécurisée et cohérente. Voici quelques éléments clés à comprendre à propos des tests de transaction :
+
+Objectifs des tests de transaction :
+
+- **Intégrité des données** : S'assurer que toutes les transactions préservent l'intégrité des données, sans perte ni corruption, même en cas d'échec en cours de transaction.
+- **Gestion des erreurs** : Vérifier que l'application gère correctement les erreurs qui peuvent survenir pendant une transaction, en s'assurant que le système revient à un état stable sans affecter les données.
+- **Performances transactionnelles** : Évaluer la capacité de l'application à traiter les transactions dans les délais attendus, particulièrement sous charge élevée.
+- **Conformité aux règles d'affaires** : Confirmer que les transactions respectent toutes les règles et logiques d'affaires spécifiées.
+
+## Test de performance
+
+Un test de performance dans le cadre d'un déploiement d'application est une méthode d'évaluation qui permet de déterminer la réactivité, l'efficacité, la fiabilité, la scalabilité et l'utilisation des ressources d'une application sous une charge spécifique. L'objectif est de s'assurer que le logiciel fonctionne bien dans des conditions diverses et à différents niveaux de demande, et de détecter les goulots d'étranglement avant que l'application ne soit mise en production.
+
+Objectifs des tests de performance :
+
+- **Vitesse** : Mesurer le temps de réponse des différentes transactions que l'application peut traiter dans diverses conditions.
+- **Stabilité** : Vérifier la fiabilité de l'application sur des périodes prolongées sous charge.
+- **Scalabilité** : Déterminer si l'application peut gérer l'augmentation du nombre d'utilisateurs ou des volumes de transactions sans dégradation significative des performances.
+- **Utilisation des ressources** : Évaluer l'efficacité avec laquelle l'application utilise les ressources système comme le CPU, la mémoire, le réseau et le disque.
+
+## Test de sécurité
+
+Un test de sécurité dans le cadre d'un déploiement d'application est une évaluation critique destinée à découvrir et corriger les vulnérabilités de sécurité potentielles et les risques associés à l'application avant qu'elle ne soit mise en production. L'objectif est de s'assurer que l'application est sécurisée contre les attaques malveillantes et qu'elle protège les données et les ressources de manière efficace.
+
+Objectifs des tests de sécurité :
+
+- **Identification des vulnérabilités** : Détecter les faiblesses dans le code, la configuration et l'infrastructure de l'application qui pourraient être exploitées par des attaquants.
+- **Validation des contrôles de sécurité** : Vérifier que les mesures de sécurité mises en place, comme l'authentification, l'autorisation, le chiffrement, et la gestion des sessions, fonctionnent comme prévu.
+- **Évaluation de la conformité** : S'assurer que l'application respecte les normes et réglementations de sécurité applicables, telles que le RGPD, HIPAA, ou PCI DSS.
+- **Prévention des pertes de données** : Protéger l'application contre les fuites de données sensibles ou personnelles.
+- **Assurance de la résilience** : Évaluer la capacité de l'application à résister et à se remettre d'attaques de sécurité.

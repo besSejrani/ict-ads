@@ -1,0 +1,153 @@
+# Modèle Conceptuel de Données
+
+## Introduction
+
+Le Modèle Conceptuel de Donnée (MCD) permet d'établir l'inventaire et la structure générale
+des données manipulées par un système informatique.
+L'un de ses buts est de valider les informations gérées par un système avec le mandant du
+projet. Il est par conséquent rédigé dans la langue de ce dernier.
+La modélisation conceptuelle que nous proposons dans ce document1 pour un univers dont
+on veut stocker les données, conduit à l'élaboration d'un type de schéma très répandu, le
+schéma entités-associations.
+
+## Entité & Associations
+
+Une entité est une population d'individus homogènes. Par exemple, les produits ou les articles
+vendus par une entreprise peuvent être regroupés dans une même entité articles (figure
+1), car d'un article à l'autre, les informations ne changent pas de nature (à chaque fois, il s'agit
+de la désignation, du prix unitaire, etc.).
+
+![MCD](/mcd/1.png)
+
+Par convention, une entité est désignée par un nom au pluriel. Le nom peut être composé de
+plusieurs mots, par exemple « pièces détachées ».
+Par contre, les articles et les clients ne peuvent pas être regroupés: leurs informations ne sont
+pas homogènes (un article ne possède pas d'adresse et un client ne possède pas de prix
+unitaire). Il faut donc leur réserver deux entités distinctes : l'entité articles et l'entité clients.
+Une association est une liaison qui a une signification précise entre plusieurs entités. Dans
+notre exemple, l'association commander est une liaison évidente entre les entités
+articles et clients, tandis que l'association livrer établit le lien sémantique entre
+les entités articles et fournisseurs
+
+![MCD](/mcd/2.png)
+
+Remarquons que dans ce schéma, les entités clients et fournisseurs ne sont pas liées
+directement, mais indirectement, via l'entité articles, ce qui est assez naturel.
+
+## Attributs & Identifiants
+
+Un attribut est une propriété d'une entité ou d'une association.
+Toujours dans notre exemple (figure 3), le prix unitaire est un attribut de l'entité articles,
+le nom de famille est un attribut de l'entité clients, la quantité commandée est un attribut
+de l'association commander et la date de livraison est un attribut de l'association livrer.
+Un attribut est caractérisé par son type naturel (non technique).
+
+![MCD](/mcd/3.png)
+
+On comprend l'importance du type naturel en observant attentivement la figure 3 :
+
+- Le numéro d'un client est numérique, mais celui d'un fournisseur est un texte :
+  probablement que l'entreprise utilise depuis longtemps une convention de
+  numérotation de ses fournisseurs qui comprend des lettres, par exemple : « CH-
+  1223 », « FR-6612 », etc...
+- On constate qu'il est important de pouvoir commander ou livrer des quantités qui
+  s'énoncent en nombres non-entier (par exemple : 1.2 tonnes de patates)
+
+- On relève qu'il est important de ne pas se limiter à la date quand il s'agit de livraison
+  ou de commande : l'heure compte aussi
+
+- Etc...
+
+Une entité et ses attributs ne doivent traiter que d'un seul sujet afin d'assurer une certaine
+cohérence au modèle. Dans notre exemple, il est donc préférable de ne pas mettre les
+informations relatives aux fournisseurs dans l'entité articles mais plutôt dans une entité
+fournisseurs séparée (et liée à l'entité articles via l'association livrer).
+Ensuite, chaque individu d'une entité doit être identifiable de manière unique. C'est pourquoi
+toutes les entités doivent posséder un attribut (ou groupes d'attributs) sans doublon (c'est-à-
+dire ne prenant pas deux fois la même valeur). Par convention, on le souligne sur le schéma.
+
+![MCD](/mcd/4.png)
+
+Remarques :
+
+- Une entité possède au moins un attribut (son identifiant)
+- Au contraire, une association peut être dépourvue d'attribut.
+
+Dans l'exemple choisi, les clients disposent d'un numéro de client qu'ils devront fournir lors
+de chacune de leur commande, ce qui est assez habituel. Il est donc bien pratique pour servir
+d'identifiant naturel. Mais on ne dispose pas toujours d'un tel attribut. Prenons un autre
+exemple : les membres d'un club sportif. Même si chaque membre a un numéro, il n'est pas
+habituel (pas naturel) de s'en servir dans la vie du club. Dès lors le problème se pose de savoir
+comment gérer le cas où deux membres du club portent le même nom ET prénom ! C'est à ce
+moment qu'on aura recours à un identifiant composé de plusieurs attributs :
+
+![MCD](/mcd/5.png)
+
+## Cardinalité
+
+La cardinalité d'un lien entre une entité et une association précise le minimum et le maximum
+de fois qu'un individu de l'entité peut être concerné par l'association.
+Exemple : un client a au moins commandé un article et peut commander n articles (n'étant
+indéterminé), tandis qu'un article peut avoir été commandé par aucun ou plusieurs clients.
+On obtient alors le schéma entités-associations OfflineAudioCompletionEvent.
+
+![MCD](/mcd/6.png)
+
+Une cardinalité minimale de 1 doit se justifier par le fait que les individus de l'entité en
+question ont besoin de l'association pour exister (un client n'existe pas avant d'avoir
+commandé quoique ce soit, donc la cardinalité minimale de l'entité clients dans l'association
+commander est 1). Dans tous les autres cas, la cardinalité minimale vaut 0 (c'est le cas pour
+une liste pré-établie d'articles par exemple).
+Ceci dit, la discussion autour d'une cardinalité minimale 0 ou 1 n'est vraiment intéressante
+que lorsque la cardinalité maximale est 1. Nous verrons en effet lors de la traduction vers un
+schéma relationnel (section 2.3), que lorsque la cardinalité maximale est n, nous ne pouvons
+pas faire la différence entre une cardinalité minimale de 0 et une cardinalité minimale de 1.
+Notons que sur notre exemple, un article peut être commandé par plusieurs clients. Cela
+provient du fait que tous les crayons rouges ne sont pas numérotés individuellement, mais
+portent un numéro d'article collectif. En toute rigueur, notre entité articles aurait dû s'appeler
+types d'article. Ainsi, un crayon rouge peut être commandé par plusieurs clients, ce n'est
+simplement pas le même crayon à chaque fois. Il s'agit d'un choix de modélisation, le lecteur
+peut très légitimement faire le choix inverse qui consiste à numéroter individuellement
+chaque crayon rouge.
+La seule difficulté pour établir correctement les cardinalités est de se poser les questions dans
+le bon sens. Autour de l'association commander, par exemple :
+
+- Côté clients, la question est « un client peut commander combien d'articles ? » et la
+  réponse est « entre 1 et plusieurs » ;
+- Côté articles, la question est « un article peut être commandé par combien de client ? »
+  et cette fois-ci, la réponse est « entre 0 et plusieurs ».
+
+Deux mêmes entités peuvent être plusieurs fois en association (c'est le cas sur la figure 6)
+
+![MCD](/mcd/7.png)
+
+Dans cet exemple issu d'une agence immobilière, une personne peut être propriétaire, habiter
+ou entretenir un logement géré par l'agence. Les logements qui ne sont pas gérés par l'agence
+ne figurent pas dans l'entité des logements, ce qui explique certaines cardinalités 0 du
+schéma. Nous supposons également qu'un logement n'est détenu que par une seule personne
+et que ce propriétaire figure obligatoirement dans l'entité des personnes.
+
+## Association réflexive
+
+Il est permis à une association d'être branchée plusieurs fois à la même entité, comme par
+exemple l'association binaire réflexive de la figure 7.
+
+![MCD](/mcd/8.png)
+
+Dans cet exemple, tout employé est dirigé par un autre employé (sauf le directeur général) et
+un employé peut diriger plusieurs autres employés, ce qui explique les cardinalités sur le
+schéma.
+
+## Cartouche
+
+Afin d'éviter au maximum toute confusion, un MCD contiendra toujours dans un de ses coins
+un cartouche contenant :
+
+- Le nom du projet
+- Un titre (car le MCD peut ne représenter qu'une partie de l'ensemble)
+- Le ou les auteur(s)
+- Une indication soit de version soit de date de publication (soit les deux)
+
+Exemple :
+
+![MCD](/mcd/9.png)

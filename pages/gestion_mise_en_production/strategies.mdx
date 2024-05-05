@@ -1,0 +1,44 @@
+# Stratégies de déploiement
+
+Pour s'adapter aux contraintes spécifiques du système d'information (SI), il est essentiel de définir en amont une stratégie de déploiement qui tient compte des risques et des contraintes identifiés.
+
+## Déploiement Big Bang
+
+Cette méthode consiste à déployer toutes les modifications sur tous les systèmes en même temps.
+
+| Avantage                            | Inconvénient                                                                |
+| :---------------------------------- | :-------------------------------------------------------------------------- |
+| La durée de déploiement est réduite | Revenir à la configuration initiale peut être aussi long que le déploiement |
+
+## Déploiement par lots
+
+Cette approche consiste à déployer l'application ou les mises à jour en fonction du type de composants: clients, serveurs, OS, ou par unité organisationnelle: comptabilité, ventes, etc.
+
+| Avantage                                                                                                             | Inconvénient                                                                                                         |
+| :------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------- |
+| Minimise l'impact sur l'ensemble du SI, la durée de déploiement peut s'étaler de plusieurs semaines à plusieurs mois | Nécessite une planification rigoureuse et une identification claire des dépendances techniques et organisationnelles |
+
+## Déploiement en parallèle
+
+Cette stratégie vise à préserver la stabilité des systèmes. Les nouveaux systèmes sont installés sans modifier les anciens, et après des tests concluants, on bascule de l'ancien au nouveau système.
+
+| Avantage                                                                                                           | Inconvénient                                                                                                      |
+| :----------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------- |
+| Flexible au niveau des contraintes temporelles car il n'est pas nécessaire de se préoccuper des heures d'opération | Nécessite la disponibilité de nouveaux systèmes ou la possibilité de retirer temporairement les anciens du réseau |
+
+## Déploiement pilote
+
+Le déploiement pilote, ou "canary release", consiste à déployer la nouvelle version sur un sous-ensemble du système, idéalement dans un département ouvert aux changements technologiques, afin de mesurer les impacts et d'étendre progressivement le déploiement.
+
+| Avantage                                                                                                                        | Inconvénient                                                                                                                                  |
+| :------------------------------------------------------------------------------------------------------------------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------- |
+| Permet de corriger des erreurs non détectées lors des tests standards et de bénéficier des retours avant le déploiement général | Peut présenter des incompatibilités si l'ancienne version fonctionne en parallèle, augmentant la charge de travail des utilisateurs impliqués |
+
+## Déploiement continu
+
+Le déploiement continu implique l'intégration et l'automatisation d'une chaîne de déploiement qui peut déployer automatiquement les solutions dans un environnement de test ou de production. Cette approche est couramment appliquée aux applications web.
+| Avantage | Inconvénient |
+| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Les demandes de changement peuvent être traitées rapidement, sans attendre une fenêtre de maintenance programmée. Les petits changements progressifs minimisent l'impact sur les utilisateurs. | Nécessite des investissements significatifs pour adapter l'architecture à l'automatisation du déploiement (conteneurs) et pour construire des chaînes de déploiement automatisées. Implique l'adoption de la culture DevOps et ne s'applique qu'à des solutions logicielles.|
+
+Chaque stratégie de déploiement a ses avantages et inconvénients, et doit être choisie en fonction des objectifs spécifiques du projet et des ressources disponibles.

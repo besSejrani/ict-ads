@@ -1,0 +1,31 @@
+# Annulation d'un déploiement
+
+Dans le cadre d'un déploiement d'application, la préparation pour annuler un déploiement, également connue sous le terme de "plan de rollback", est essentielle pour plusieurs raisons :
+
+1. Assurer la continuité des opérations
+   Le déploiement d'une nouvelle version d'une application peut parfois entraîner des problèmes imprévus qui affectent les opérations quotidiennes. Si ces problèmes dégradent significativement les performances ou la fonctionnalité, il peut être nécessaire de revenir à une version antérieure pour maintenir la continuité des services jusqu'à ce que les problèmes soient résolus.
+
+2. Minimiser l'impact sur l'expérience utilisateur
+   Les utilisateurs s'attendent à un service stable et fiable. Un déploiement qui introduit des bugs ou dégrade l'expérience utilisateur peut entraîner une insatisfaction et nuire à la réputation de l'entreprise. Un plan de rollback permet de restaurer rapidement l'application à son état fonctionnel précédent, minimisant ainsi l'impact négatif sur les utilisateurs.
+
+3. Gérer les risques de sécurité
+   Si un déploiement introduit une faille de sécurité non identifiée lors des phases de test, il est crucial de pouvoir revenir rapidement à une version antérieure plus sécurisée pour protéger les données des utilisateurs et les systèmes de l'entreprise contre les attaques.
+
+4. Conformité avec les obligations réglementaires
+   Dans certains secteurs, les applications doivent respecter des normes strictes de conformité. Si un déploiement compromet cette conformité, le rollback peut être nécessaire pour éviter des pénalités légales ou des sanctions.
+
+5. Tester la capacité de récupération
+   La préparation d'un plan de rollback teste et renforce les processus de récupération d'urgence de l'entreprise. Cela aide à s'assurer que les mécanismes de sauvegarde et de restauration fonctionnent correctement en cas de besoin.
+
+Comment préparer un plan de rollback :
+
+- **Tester le processus de rollback** : Avant le déploiement, il est crucial de tester le processus de retour en arrière pour s'assurer qu'il fonctionne correctement et que les données ne seront pas perdues.
+- **Documentation claire** : Documenter le processus et les étapes pour revenir à la version antérieure de l'application. Cela doit inclure qui est responsable de l'exécution du rollback et sous quelles conditions il doit être initié.
+- **Sauvegardes** : Assurer que des sauvegardes complètes de l'état actuel du système sont disponibles et peuvent être restaurées.
+- **Communication** : Définir un plan de communication pour les parties prenantes et les utilisateurs pour expliquer pourquoi le rollback a été nécessaire et quelles mesures sont prises pour résoudre le problème.
+
+En somme, se préparer à annuler un déploiement est une mesure de précaution cruciale pour gérer les risques associés à la mise en œuvre de nouvelles versions d'applications, garantissant ainsi la stabilité, la sécurité, et la conformité du système d'information de l'entreprise.
+
+## Tester la procédure de sauvegarde & d'annulation
+
+Il est crucial de tester régulièrement les procédures d'annulation et de sauvegarde pour éviter toute surprise le jour où elles seront nécessaires. Cette pratique permet de s'assurer que ces processus fonctionnent efficacement et sont prêts à être déployés en cas d'urgence, garantissant ainsi la continuité et la sécurité des opérations.

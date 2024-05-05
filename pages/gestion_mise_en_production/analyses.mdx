@@ -1,0 +1,45 @@
+# Analyse de l'existant
+
+Le succès du déploiement d'une solution repose autant sur les spécifications de la solution elle-même que sur celles de l'environnement où elle sera intégrée.
+Cet environnement comprend non seulement des éléments techniques mais aussi des aspects humains et organisationnels cruciaux.
+Une compréhension approfondie de ces facteurs techniques et organisationnels est essentielle pour garantir une intégration réussie.
+
+## Existant organisationnel
+
+Lors d'un déploiement, il est essentiel de comprendre non seulement la nature du système d'information mais surtout la manière dont il est utilisé au sein de l'organisation.
+La priorité est d'évaluer la criticité des traitements effectués par les différents services, ce qui nécessite une connaissance approfondie des processus métiers. Ces processus reflètent les activités clés de l'organisation.
+
+Il est crucial d'analyser les flux critiques et leurs interactions avec les systèmes impactés par le déploiement, en identifiant les dépendances entre les flux. La présence de conventions de services (SLA) peut faciliter cette tâche, car elles précisent les délais de rétablissement des services critiques.
+En l'absence de SLA, la criticité des services doit être évaluée en consultant les responsables des processus métiers, soit par des réunions, soit par des questionnaires.
+
+## Existant technique
+
+L'existant technique désigne le système d'information (SI) déjà en exploitation, incluant tous les systèmes impactés, directement ou indirectement, par le déploiement. Selon l'ampleur du déploiement, cela peut concerner un sous-ensemble spécifique ou la totalité du SI.
+
+## Configuration du système cible
+
+Le système cible est celui qui recevra la solution déployée, pouvant être un serveur unique ou un ensemble de systèmes concernés par le déploiement. L'analyse de l'existant technique est simplifiée par l'utilisation d'une Configuration Management Database (CMDB), qui permet d'éditer les rapports de configuration des systèmes impactés. Sans CMDB, cette analyse devient une tâche ardue nécessitant une vérification approfondie de la configuration requise pour garantir la compatibilité.
+
+Les étapes clés incluent :
+
+- L'évaluation détaillée des spécifications des systèmes cibles (matériel, logiciel et réseau) pour assurer la présence de la configuration minimale ou optimale.
+- L'inventaire des composants existants qui subiront des modifications durant le déploiement, en tenant compte des dépendances entre ces composants et les services offerts.
+- La vérification de la compatibilité entre tous les éléments identifiés ayant des interactions avec la nouvelle solution, incluant les personnalisations utilisateurs (macros, etc.) et les développements d'intégration.
+
+Cette analyse est essentielle pour choisir la stratégie de déploiement, préparer les environnements de test, et garantir la fiabilité des tests en reproduisant fidèlement le système cible.
+Une omission durant cette phase peut entraîner des réussites en test mais des échecs en production.
+
+## Homogénéité des configurations
+
+L'homogénéité dans un système d'information (SI) se réfère à l'existence de configurations matérielles et logicielles standard au sein de l'organisation. La présence de ces configurations standardisées est cruciale, surtout dans un SI hétérogène où chaque configuration unique peut rendre les tests moins fiables.
+
+En l'absence de configurations standard (ou "master"), et en préparation d'un déploiement majeur, il est conseillé d'adopter une politique d'homogénéisation. Cette approche consiste à définir et standardiser quelques types de configurations qui répondent aux besoins de l'organisation.
+Ces modèles standardisés peuvent alors être déployés simultanément avec la nouvelle version de l'application, améliorant ainsi la cohérence et la fiabilité des tests.
+
+## Migration des données
+
+Lorsque la solution à déployer utilise le même format de données que l'existant, aucun problème particulier n'est à prévoir. Cependant, si les formats sont différents et incompatibles, il est nécessaire de migrer les données vers le nouveau format.
+Cette migration exige des procédures spécifiques de transformation et de vérification, et parfois même des opérations manuelles comme la saisie ou la vérification des données.
+
+Il est crucial de vérifier si l'ancien format de données doit être conservé pour d'autres applications.
+Si c'est le cas, la migration devra être automatisée et planifiée pour pouvoir être répétée continuellement pendant la phase d'exploitation, tant que le maintien des deux formats sera nécessaire.

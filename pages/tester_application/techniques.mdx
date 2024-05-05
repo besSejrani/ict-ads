@@ -1,0 +1,93 @@
+import { Steps } from "nextra/components";
+
+# Techniques de test
+
+## Revue de Code
+
+La revue de code par des pairs est l'un des meilleurs moyens de réduire le nombre d'erreurs durant la phase de développement. Ce processus consiste à examiner le code source par d'autres développeurs, permettant ainsi de détecter les erreurs dès leurs apparitions et d'optimiser l'efficacité du code.
+
+## Multiple Tests
+
+Lors de la construction d'une application, différents types de tests logiciels sont utilisés pour assurer la qualité et la performance du produit final. Ces tests sont généralement classés selon qu'ils concernent les exigences fonctionnelles ou non fonctionnelles de l'application. Voici un aperçu des types de tests dans l'ordre où ils sont généralement effectués, avec des descriptions pour chaque type et leur relation avec les exigences fonctionnelles ou non fonctionnelles :
+
+<Steps>
+
+### Tests de smoke (Tests de vérification)
+
+Description : Aussi appelés "tests de santé" ou "build verification tests", les tests de smoke vérifient les fonctionnalités basiques d'une application pour s'assurer qu'elles fonctionnent avant de procéder à des tests plus approfondis. Ces tests sont conçus pour éliminer les versions défectueuses d'une application de manière précoce dans le cycle de test, évitant ainsi des coûts et des efforts inutiles sur des builds instables.
+
+Exigences : Fonctionnelles, car ils vérifient que les fonctionnalités clés de l'application fonctionnent comme prévu et que le build est stable pour des tests plus détaillés.
+
+### Tests unitaire
+
+Description : Ces tests vérifient la plus petite partie testable d'une application, généralement des fonctions ou des méthodes individuelles, pour s'assurer qu'elles fonctionnent correctement de manière isolée.
+
+Exigences : Fonctionnelles, car ils vérifient la logique spécifique de fonctionnement.
+
+### Test d'intégration
+
+Description : Après les tests unitaires, les composants ou modules sont combinés et testés en groupe pour identifier les problèmes dans les interactions entre eux.
+
+Exigences : Fonctionnelles, car ils testent la coordination et la communication entre différents modules ou services.
+
+### Tests de système
+
+Description : Ces tests évaluent le système complet pour vérifier que l'application répond aux spécifications et exigences définies.
+
+Exigences : Fonctionnelles, car ils valident la conformité de l'application avec les exigences du client ou du marché.
+
+### Tests d'acceptation utilisateur (UAT)
+
+Description : Conduits avec la participation des utilisateurs finaux, ces tests garantissent que le système fait ce que les utilisateurs finaux ont besoin qu'il fasse et qu'il est prêt pour l'exploitation.
+
+Exigences : Fonctionnelles, car ils confirment que le système répond aux besoins des utilisateurs finaux et aux processus d'affaires.
+
+### Test de performance
+
+Description : Ces tests évaluent la vitesse, la réactivité et la stabilité de l'application sous une charge de travail spécifique.
+
+Exigences : Non fonctionnelles, car ils vérifient les attributs de performance tels que la rapidité et la capacité de gestion de charge.
+
+### Test de charge
+
+Description : Une forme de test de performance pour vérifier comment le système se comporte sous une charge lourde, souvent jusqu'au point de rupture.
+
+Exigences : Non fonctionnelles, car ils concernent la capacité du système à gérer de grands volumes.
+
+### Test de stress
+
+Description : Similaires aux tests de charge mais conçus pour pousser le logiciel au-delà de ses limites normales pour voir comment il réagit sous une pression extrême.
+
+Exigences : Non fonctionnelles, mettant l'accent sur la robustesse et l'erreur de manipulation.
+
+### Test de sécurité
+
+Description : Évaluations spécifiquement destinées à découvrir les vulnérabilités, les risques de sécurité et les points de défaillance potentiels dans l'application.
+
+Exigences : Non fonctionnelles, car ils concernent la protection contre les accès non autorisés et les attaques.
+
+### Test de compatibilité
+
+Description : Vérifie que le logiciel fonctionne comme prévu dans différents environnements, systèmes d'exploitation, configurations matérielles, et versions de navigateurs.
+
+Exigences : Non fonctionnelles, testant la flexibilité de l'application à travers différents environnements.
+
+### Test d'accessibilité
+
+Description : S'assurent que l'application est utilisable par les personnes ayant diverses incapacités.
+
+Exigences : Non fonctionnelles, axées sur l'accessibilité utilisateur.
+
+### Test de régression
+
+Description : Effectués après des modifications ou des mises à jour pour s'assurer que les nouvelles modifications n'affectent pas négativement les fonctionnalités existantes.
+
+Exigences : Fonctionnelles et non fonctionnelles, garantissant que les corrections ou améliorations n'introduisent pas de nouveaux problèmes.
+
+</Steps>
+
+## Jeu d'essai
+
+Un bon compromis pour obtenir des données pertinentes lors de la phase de test consiste à copier des données réelles et à les utiliser comme base tout en modifiant les informations confidentielles (noms de clients ou de personnes).
+
+Il est également conseillé d'ajouter des données fictives afin de valider les scénarios manquants et les nouvelles fonctionnalités, en collaboration avec les spécialistes métier.

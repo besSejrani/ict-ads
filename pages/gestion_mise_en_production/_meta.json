@@ -1,0 +1,14 @@
+{
+  "introduction": "Introduction",
+  "version": "Construction des version",
+  "analyses": "Analyse de l'existant",
+  "ressources": "Ressources à mobiliser",
+  "strategies": "Stratégies de déploiement",
+  "planification": "Planification du déploiement",
+  "formation": "Formation",
+  "tests": "Tests",
+  "annulation": "Annulation d'un déploiement",
+  "deploiement": "Déploiement & Contrôle",
+  "documentation": "Documentation",
+  "transfert": "Transfert à l'exploitation"
+}

@@ -1,0 +1,50 @@
+# Planification du déploiement
+
+L'élaboration d'un planning consiste à organiser les tâches nécessaires pour respecter les délais impartis, tout en tenant compte des ressources humaines disponibles et des interdépendances entre les tâches. Plus les contraintes sont fortes, plus il est complexe de trouver un arrangement optimal.
+
+En cas de planification jugée irréalisable ou à haut risque d'échec, il est conseillé d'ajuster les ressources disponibles. Si les contraintes de temps sont inflexibles, il peut être judicieux d'augmenter l'utilisation d'outils logiciels de déploiement. Si ces outils sont déjà optimisés, il serait alors nécessaire d'accroître les ressources humaines, soit par une redistribution interne, soit par le recrutement externe. Enfin, si l'ajustement des ressources humaines n'est pas possible, il faut envisager de modifier les délais prévus, quitte à revoir la stratégie de déploiement.
+
+## Inventaire des tâches
+
+Il est essentiel d'identifier et de décrire toutes les tâches nécessaires à la mise en production. Cet inventaire doit couvrir l'intégralité des activités, y compris la préparation du système, la configuration de l'environnement de test, l'exécution des tests et l'évaluation de leurs résultats, les déplacements des intervenants et du matériel, l'installation et la vérification du système, la formation des utilisateurs, et la documentation.
+
+Il est également crucial de ne pas négliger les opérations indirectes telles que les déplacements d'un site à un autre ou la rédaction de rapports. Bien qu'elles ne soient pas toujours explicitement mentionnées dans le planning, ces tâches doivent être prises en compte dans l'estimation des durées nécessaires pour éviter tout débordement inattendu du calendrier de projet.
+
+## Dépendance entre les tâches
+
+L'une des difficultés majeures de la planification réside dans l'organisation des tâches selon leur séquence logique et les contraintes associées. En effet, l'ordre d'exécution des tâches est souvent restreint par diverses exigences, limitant la flexibilité de leur réalisation.
+
+- **Tests** : Ils ne peuvent être initiés que lorsque l'environnement de test est entièrement configuré et opérationnel.
+- **Formation** des utilisateurs : Elle ne peut débuter que lorsque la solution a été déployée sur un nombre suffisant de postes.
+- **Mises à niveau** : Les mises à niveau du matériel et des systèmes d'exploitation doivent être réalisées avant l'installation des nouvelles applications.
+- **Sauvegardes** : Elles doivent être effectuées avant toute modification apportée au système de production pour garantir la sécurité des données.
+- **Documentation** : Elle est rédigée uniquement après avoir validé le succès de l'installation ou de la modification.
+- **Migration des données** : Les données doivent être prêtes et testées avant leur intégration dans le nouveau système.
+
+Une fois que toutes les dépendances entre les tâches sont clairement identifiées, il devient possible de définir un ordre d'exécution optimal. Cette étape est cruciale pour minimiser les risques et assurer une transition fluide lors de la mise en œuvre du projet.
+
+## Durée des tâches
+
+Lors de la définition des tâches, il est crucial d'incorporer une marge de sécurité pour assurer leur réalisation dans les délais prévus. Pour les systèmes complexes, il est également essentiel de prévoir du temps pour les phases d'arrêt et de redémarrage nécessaires.
+
+Il est important de considérer le temps nécessaire pour restaurer le système à son état initial, au cas où un problème technique ou un dépassement des délais imposerait de repousser le déploiement.
+
+Sans expérience préalable sur une tâche spécifique, il est difficile d'estimer précisément le temps requis. En l'absence de références antérieures, plusieurs méthodes peuvent aider à évaluer le temps nécessaire :
+
+- **Observation des déploiements antérieurs** : Utiliser les durées réelles observées lors de déploiements similaires effectués dans le passé pour établir des bases de comparaison.
+- **Tests de la version actuelle** : Se référer aux temps enregistrés lors des tests de la version à déployer pour obtenir des estimations réalistes.
+- **Consultation des équipes** : Demander aux équipes techniques de fournir une estimation du meilleur et du pire scénario pour chaque tâche, puis calculer une moyenne des réponses pour obtenir une prévision plus équilibrée.
+
+Ces pratiques permettent de mieux appréhender la gestion du temps et d'anticiper les potentiels imprévus, essentiels pour le succès d'un projet technique complexe.
+
+## Qualification des intervants
+
+Chaque tâche requiert l'expertise d'un spécialiste dédié. Il est donc crucial de vérifier la disponibilité de ces spécialistes en amont pour s'assurer qu'ils pourront intervenir au moment nécessaire.
+
+Il arrive souvent que l'on néglige d'inclure les utilisateurs finaux dans la liste des intervenants pour les tests, bien que leur participation soit essentielle. Ces tests requièrent l'expertise d'un spécialiste métier pour garantir que le système répond aux exigences pratiques et fonctionnelles de l'entreprise.
+
+## Jalons
+
+Les jalons sont des points critiques du projet où l'on confirme l'achèvement d'une phase spécifique, permettant ainsi de valider son succès et de s'assurer que le déploiement progresse correctement. Il est conseillé d'établir des jalons à des intervalles rapprochés pour détecter et réagir rapidement en cas de problèmes.
+
+Pour qu'une vérification soit efficace, chaque jalon doit correspondre à un moment où le déploiement est dans un état stable et évaluable. Par conséquent, les jalons sont généralement définis à la conclusion d'un lot ou d'une phase spécifique du projet.

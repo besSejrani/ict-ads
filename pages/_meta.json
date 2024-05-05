@@ -1,0 +1,27 @@
+{
+  "index": "Introduction",
+  "uml": {
+    "title": "UML",
+    "theme": {
+      "layout": "full"
+    }
+  },
+  "design_pattern": {
+    "title": "Design Pattern",
+    "theme": {
+      "layout": "full"
+    }
+  },
+  "fondamentaux": "Fondamentaux",
+  "solutions": "Evaluer des solutions informatiques",
+  "delimiter": "Délimiter des systèmes et spécifier des exigences",
+  "revue_de_code": "Revue de Code",
+  "tester_application": "Tester une application",
+  "gestion_mise_en_production": "Gestion de mise en production IT",
+  "evaluer_les_innovations_technologiques": "Evaluer les innovations technologiques",
+  "budgetisation": "Budgetisation",
+  "droit_applicable_technologie": "Le droit applicable aux technologies de l'information et de la communication",
+  "conception_ISMS": "Conception de l'ISMS",
+  "conception_base_de_donnees": "Conception de base de données",
+  "glossaire": "Glossaire"
+}

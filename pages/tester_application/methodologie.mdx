@@ -1,0 +1,263 @@
+import { Steps } from "nextra/components";
+import { Callout } from "nextra/components";
+
+# Méthodologie de tests
+
+## Qui
+
+### Intervenants
+
+Toute catégorie d'utilisateurs du système affectée par le changement à tester doit être représentée lors des tests.
+
+Certains intervenants participeront à la définition des objectifs et à la conception des tests, tandis que d'autres seront actifs dans la réalisation des tests et l'évaluation de leurs résultats.
+
+- **Le chef de projet** : responsable de l'organisation du changement, qu'il s'agisse du développement d'un logiciel ou de l'intégration de nouveaux composants (logiciels ou matériels). Le chef de projet intervient dans la planification des tests et dans l'évaluation de leurs résultats. Il peut également collaborer à la détermination des objectifs quantitatifs et à la spécification des tests à réaliser.
+
+---
+
+- **Le responsable de l'assurance qualité** : chargé des aspects qualité généraux pour toute l'organisation, ce responsable intervient également dans le domaine informatique en tant que conseiller ou superviseur. Son rôle consiste à appliquer les principes d'assurance qualité de l'entreprise aux aspects informatiques. En collaboration avec les spécialistes techniques appropriés, il détermine les normes et procédures à employer, les contrôles à effectuer et les objectifs à atteindre.
+
+---
+
+- **Les analystes de test** : ces spécialistes de la conception de tests développent des spécifications précises basées sur les lignes directrices et objectifs définis par le responsable d'assurance qualité et le chef de projet, incluant des scénarios d'utilisation et des jeux d'essai. Dans un vaste projet impliquant plusieurs analystes, un groupe de travail parallèle au groupe de développement est constitué, et un chef d'équipe de test est nommé.
+
+---
+
+- **Les spécialistes métier** : Dans de nombreux cas, les spécialistes informatiques ne peuvent juger que de la conformité structurelle de l'objet à tester, car ils n'ont pas suffisamment de connaissances dans le domaine professionnel concerné pour évaluer l'aspect fonctionnel. Par exemple, dans le cas d'un logiciel pilotant une chaîne de fabrication de montres, un informaticien pourrait détecter des erreurs syntaxiques de programmation, mais il faut un maître horloger pour déterminer si les pièces fabriquées sont conformes. Les spécialistes métier sont donc chargés de fournir des cas et des données pour la validation du système, c'est-à-dire pour contrôler sa conformité fonctionnelle.
+
+---
+
+- **Le technicien d'exploitation** : Une fois les tests achevés avec succès, le logiciel ou matériel passe sous la responsabilité du service informatique, chargé de sa mise en production et de sa maintenance. Comme l'utilisateur final, les techniciens d'exploitation sont donc très concernés par la qualité du système, car ils subiront les défauts résiduels tout au long du cycle de vie du système. De plus, l'intégration d'un nouvel objet dans un système existant peut potentiellement causer des problèmes de compatibilité et de performance. Les techniciens d'exploitation participent aux spécifications des tests d'intégration et d'acceptation et à leur réalisation.
+
+---
+
+- **Les testeurs** : Le testeur est celui qui réalise le test en documentant la démarche et le résultat. Le degré de qualification et le domaine d'activité du testeur varient beaucoup en fonction du projet. Des tests statiques portant sur des documents de conception ou du code source doivent être effectués respectivement par des analystes et des développeurs. Au contraire, le test statique du manuel de l'utilisateur ne doit pas être effectué par un spécialiste informatique, ni même par un utilisateur avancé. Quant aux tests dynamiques, ils peuvent souvent être pratiqués par une personne sans compétence particulière, car leur démarche est généralement très précise et il suffit de la suivre attentivement. Le testeur peut alors être, selon la dimension du projet et le type de test, un analyste de test, un développeur, un membre de l'équipe d'exploitation ou un utilisateur.
+
+---
+
+- **Les utilisateurs finaux** : souvent à l'origine de la modification du système informatique, les utilisateurs doivent demeurer impliqués tout au long de sa réalisation, afin d'éviter toute dérive entre la commande et la livraison. Par ailleurs, certains types de tests, notamment les tests d'ergonomie, doivent impérativement être pratiqués par l'utilisateur final.
+
+### Règles
+
+Afin que les tests soient efficaces, il convient de respecter une règle fondamentale : un membre de l'équipe de test pour un projet ne doit pas occuper une autre fonction dans le même projet.
+
+Cette situation de double fonction peut entraîner les problèmes suivants :
+
+- **Conflit d'intérêt** : Une personne impliquée à la fois dans la réalisation et dans le contrôle de cette réalisation se trouve inévitablement dans une situation inconfortable. D'une part, un manque d'objectivité naturel la rend moins efficace qu'un intervenant ayant un regard neutre. D'autre part, il est difficile de rechercher ses propres erreurs ou celles de ses collègues : on peut être tenté d'en ignorer certaines afin de gagner du temps ou de défendre un choix erroné.
+
+---
+
+- **Conflit de ressources** : Il est bien connu que 80% environ des projets informatiques ne parviennent pas à respecter le budget et/ou le délai initial. Or, si les ressources en temps et en personnes pour les tests sont prises sur l'équipe de projet, les membres de cette équipe auront l'impression de perdre du temps et de prendre du retard à cause des tests, ce qui pourrait les conduire à abréger consciemment ou inconsciemment certains tests.
+
+### Récapitulatif des responsabilités
+
+|                                          | Chef de projet | Responsable d'assurance qualité | Spécialiste en informatique | Analyste de test | Spécialiste métier | Technicien d'exploitation | Testeurs | Utilisateurs finaux |
+| :--------------------------------------- | :------------: | :-----------------------------: | :-------------------------: | :--------------: | :----------------: | :-----------------------: | :------: | :-----------------: |
+| Définition des objectifs qualitatifs     |       ✅       |               ✅                |                             |                  |                    |                           |          |                     |
+| Définition des objectifs quantitatifs    |       ✅       |               ✅                |             ✅              |                  |                    |                           |          |                     |
+| Spécification des tests fonctionnels     |                |                                 |                             |        ✅        |         ✅         |                           |          |         ✅          |
+| Spécification des tests non-fonctionnels |                |                                 |             ✅              |        ✅        |                    |            ✅             |          |                     |
+| Élaboration de scénarios d'utilisation   |                |                                 |                             |                  |         ✅         |            ✅             |          |                     |
+| Élaboration de jeux d'essai (données)    |                |                                 |                             |                  |         ✅         |                           |          |                     |
+| Planification des tests                  |       ✅       |                                 |                             |                  |                    |                           |          |                     |
+| Établissement de l'environnement de test |                |                                 |             ✅              |                  |                    |            ✅             |          |                     |
+| Exécution des tests fonctionnels         |                |                                 |             ✅              |                  |                    |                           |    ✅    |         ✅          |
+| Exécution des tests non fonctionnels     |                |                                 |             ✅              |                  |                    |            ✅             |    ✅    |                     |
+| Documentation des résultats de test      |                |                                 |                             |                  |                    |                           |    ✅    |                     |
+| Acceptation des résultats de test        |       ✅       |               ✅                |                             |                  |                    |                           |          |                     |
+
+### Motivation
+
+- Valoriser l'activité des chargés de test en insistant sur l'importance de leur responsabilité dans l'assurance qualité : les tests pratiqués constituent une garantie et seront utiles tout au long du cycle de vie du système testé.
+
+---
+
+- Ne pas présenter les tests comme une recherche de coupable : les erreurs sont inévitables, les tests ne visent pas à mettre en cause les compétences de quiconque.
+
+---
+
+- Informer et intégrer les participants aux tests le plus tôt possible, afin de leur permettre de planifier leur collaboration sans perturber leur activité habituelle et de pouvoir pratiquer les tests au plus tôt.
+
+---
+
+- Ne pas forcer le test à réussir en faisant pression sur l'équipe de test, quel que soit le retard pris par le projet : tester vise à trouver les défauts et non à prouver leur absence, il faut donc prévoir systématiquement un délai de correction après le test.
+
+## Quand
+
+Le coût de correction d'un défaut est proportionnel au temps écoulé entre l'introduction de l'erreur et sa détection. Il faut donc tester aussi tôt que possible, c'est-à-dire dès qu'un élément maîtrisable est terminé.
+
+On considère qu'un élément est maîtrisable et donc testable dès qu'une fonction est terminée, même s'il s'agit d'une petite fonction qui s'inscrit dans un plus grand ensemble.
+
+Plus l'objet est petit, plus il est simple et plus le test est aisé et son résultât sûr. Quand la fonction sera intégrée à l'ensemble, il ne restera plus qu'à tester ses points de connexion avec l'ensemble, ce qui sera également plus simple car on n'aura pas à mettre en cause son comportement interne.
+
+Sachant qu'une part important des tests est orienté exigence fonctionnel, les tests peuvent être spécifiés dès la conception du cahier des charges.
+
+![Cycle en V](/tests/cycle_en_v.png)
+
+## Comment
+
+### Règles
+
+<Steps>
+
+#### Divisibilité
+
+Bien que l'on teste individuellement chaque élément maîtrisable, il importe de ne pas négliger leur interaction dans le fonctionnement d'ensemble et d'opérer également des tests sur ce dernier.
+
+#### Répétabilité
+
+Un test doit pouvoir être répété et donner le même résultat, ce qui implique une définition précise du protocole et de l'environnement de test.
+
+#### Mesurabilité
+
+Lorsqu'un test est effectué, ses résultats doivent permettre de déterminer si le test est réussi ou échoué.
+
+#### Efficacité
+
+Les tests doivent être rigoureusement définis en fonction de l'objectif quantitatif et ne pas aller au-delà afin d'assurer une utilisation optimale des ressources
+
+#### Distinguabilité
+
+Deux tests identiques au cours de la même phase ne valent pas mieux qu'un seul. Chaque test doit couvrir un aspect différent des autres.
+
+</Steps>
+
+### Documentation
+
+Tout test valable comporte des spécifications, un protocole, un journal et un résultat. Tester sans conserver la trace du résultat est inutile, et le résultat n'a pas de sens que par rapport aux spécifications et à la manière dont les tests ont été menés.
+
+<Callout type="warning" emoji="⚠️">
+  Un test non documenté n'est pas un test
+</Callout>
+
+Outre la conservation du résultat des tests, la documentation des tests dynamique présente une utilité supplémentaire: elle rensigne sur le comportement réel du système et pourra donc être utilisée comme référence tout au long de la phase d'exploitation. Certains tests seront d'ailleurs répétés à l'identique afin de s'assurer que les modifications apportées au système (ajout ou correction) n'ont pas introduit d'erreurs dans l'existant: ces tests sont aussi appelés **tests de non régression**
+
+### Arrêt des tests
+
+Tester est un travail sans fin, il y aura toujours des éléments à tester, cependant il faut s'arrêter avant la fin du projet.
+
+Une réponse correcte serait: quand il ne reste plus que le pourcentage de défaut admis dans la définition des objectifs de qualité quantitatifs. Mais comment savoir combien il reste de défauts dans les parties non testés ?
+
+Plusieurs solutions peuvent être adoptées, en fonction du type de test et de la manière dont les objectifs quantitatifs ont été définis.
+
+- De façon générale, on peut se fonder sur les résultats déjà obtenus par le passes de test précédentes pour en déduire le taux détéction des erreurs, ce qui permet d'obtenir une évaluation du taux d'erreurs résiduelles, à condition que le taux de détection soit stable.
+
+---
+
+- Lorsque le code source est accessible, on peut fixer la couverture du code, c'est-à-dire le pourcentage de chaque type d'instruction (appel de fonction, branchement, etc) qui doit avoir été exécuté. La couverture du code doit être fixée en corrélation avec la complecité du code, que l'on peut obtenir par des outils automatiques, les analyseurs de complexités, ou par estimation.
+
+---
+
+- Les tests d'executions utilisant des jeux d'essais peuvent être arrêtés sur la base du nombre total de jeu d'essai fournis, exécutés et réussis. Cette solution implique que les fonctions à remplir par le système aient été classées par catégorie (d'après les spécifications) et que le nombr de jeux d'essai a été fixé pour chaque catégorie en fonction des risques.
+
+---
+
+- On peut aussi arrêter les tests à l'expiration du délai imparti ou lorsque les ressources sont épuisées. Cette solution n'est cependant valable qu'en conjonction avec un autre critère d'arrêt, car employé seule, elle ne permet pas de contrôler que les objectifs ont été atteints.
+
+---
+
+- Enfin, et s'il est absolument nécessaire d'avoir un taux d'erreur résiduelles exact (systèmes à mission critique), il est possible d'ajouter sciemment des erreurs et de calculer l'efficacité des tests en fonction du nombre qui seront détectées.
+
+### Conception des tests
+
+Comme tout projet, une campagne de test est divisée en 2 phases: conception et réalisation. La partie conception démarre en même temps que le projet de développement ou d'intégration pour lequel les tests sont organisés. Elle consiste à fixer les objectifs par rapport aux critères de qualité et à spécifier les moyens de contrôler qu'ils sont atteints.
+
+En fonction de la dimension du projet et du type de système à tester, les documents de conceptions peuvent être plus ou moins nombreux et riches.
+Pour l'intégration d'un nouvel élément du réseau, toutes les spécifications de test pourront tenir dans un même document. En revanche, lorsqu'il s'agit de la mise en exploitation d'un nouveau logiciel, le périmètre et la durée de la campagne de test nécessitent l'élaboration de plusieurs documents de conception, correspondant à différentes phases et à différents niveaux de détail.
+
+### Plan de test stratégique
+
+Premier document à être élaboré, le plan de test stratégique formalise les objectifs qualitatifs et servira de base à toutes les spécifications de test. Si l'organisation dispose d'un plan d'assurance qualité, il sera naturellement utilisé pour déterminer les objectifs et servira de base au plan test.
+De la même manière, s'il existe déjà un manuel de test comportant les protocoles et normes utilisés dans l'organisation, on ne manquera pas de s'y conformer.
+
+- **Critère de qualité** à satisfaire (formulation des objectifs qualitatifs)
+
+---
+
+- **Contraintes** à respecter, notamment concernnt les délais
+
+---
+
+- **Choix des techniques de test** pour chaque type d'objet et chaque phase
+
+---
+
+- **Planning** général de la campagne de test délimitant les phases, ce qu'elles concerneront et leur enchaînement (en fonction des dépendances)
+
+---
+
+- **Critère de départ** : quelles conditions doivent être réunies pour qu'une phase de test puisse commencer (achèvement de tâches, ressources à disposition)
+
+---
+
+- **Catégorisation des défauts** : tous les défauts n'étant pas de même importance, on établit plusieurs catégories de gravité dans lesquelles les défauts trouvés seront classés.
+
+---
+
+- **Priorité de correction** : pour chaque catégorie de défaut, on fixe le délai de correction, en indiquant notamment les défauts dont la correction doit être effectuée avant la fin des tests.
+
+---
+
+- **Critère d'arrêt et d'acceptation** : de façon générale, qaund et sur quelle base les tests s'arrêter et quelles conditions doivent être réunies pour que les résultats de tests soient acceptés
+
+---
+
+- **Détermination des compétences**: collaborateurs et services concernés, avec leur tâches respectives.
+
+### Plan de test opérationnel
+
+Si le plan de test stratégique fixe les règles applicables à toutes la campagne de test, le plan de test opérationnel emploie une approche plus technique.
+
+- Objectifs fixés à la phase de test concernée
+
+- Risque et dépendances: marche à suivre en case de problème (comme un retard) et événement requis préalablement au test
+
+- Critère de départ: adaptation des critères généraux définis dans le plan stratégique à la phase et aux techniques utilisés, par exemple en nombre de défauts trouvés pour chaque catégorie ou en nombre de passes de test
+
+- Liste des personnes concernées avec leurs responsabilités respectives
+
+- Moyens de communication: sous quelle forme les intervenants communiquent-ils entre-eux avec les autres personnes cocnernées (chef de projet, responsable d'assurance qualité, développeurs, ...)
+
+- Modalités de formation si les testeurs doivent recevoir une formation spécifique à l'objet à tester
+
+- Planification: dates de début et de fin
+
+### Spécification de test
+
+Tandis que le plan de test opérationnel fixe le cadre d'execution des tests, les spécifications décrivent le test lui-même: quand est-ce qu'il sera effectué, sur quoi, comment l'effectuera-t-on, qui s'en chargera et quels résultat sont attendus.
+
+- Domaines fonctionnels ou structurels évalués: indication de la catérgoie de fonctions / éléments sur lesquels le test porte, par exemple sur l'ergonomie de l'interface ou l'execution d'opérations précises par l'utilisateur
+
+- Environnement de test: découlant des documents précédent, ce point décrit cette fois l'environnement avec le niveau de détail permettant de mettre en place réellement l'environnement, en listant les matériels et logiciels ainsi que les références des jeux d'essai
+
+- Type de résultats: adaptation des catégories de résultats prévus dans le plan stratégique à l'objet visé et à ses jeux d'essai, avec une description suffisament concrète pour permettre au testeur de classer le défaut trouvé sans hésitation
+
+- Instruction de correction: comment les défauts résiduels devront être corrigés, dans quel délai et quel scénarios de test devront être répétés après la correction
+
+- Critère d'acceptation: quels devront être les résultats pour que le test soit réussi et que le certificat de test soit signé
+
+- Documentation et communication: indication du contenu des documents qui devront être fourni, transmis, conservés, éventuellement en précisant les modèles à utiliser (scénario, feuille de résultat, rapport, journal, certificat)
+
+- Participants au test: liste nominative des testeurs avec leur rôles, ainsi que des personnes responsables de décisions sur le test
+
+### Documents
+
+#### Résultat de test
+
+Pour chaque scénario de test, une feuille de résultat est remplie par le testeur. Le résultat de test reprend la référence du scénario et indique les erreurs découvertes. Le résultat sera utilisé pour effectuer la correction des erreurs.
+Une fois al correction effectuée, le scéneraio est executé à nouveau (test de non régression), il peut donc y avoir plusieurs résultats par scénario.
+
+#### Journal de test
+
+Le journal de test est l'outil du travil du chef de projet pendant la campagne de test: il comporte, jour par jour, le nom des scénarios executés et leur résultats succint: échec, réussite.
+S'il est suffisamment précis, il servira aussi à rédiger le rapport de test sans avoir besoin de se référer aux feuilles de résultats.
+
+#### Rapport de test
+
+Le rapport de test correspond au résultat d'une spécification de test, il résume les résultats de test obtenus par tous les scnéarios, en donnant le nombre de scénarios réussis et échoués, le nombre de'erreurs corrigés et le nombre d'erreurs non corrigés, avec leur catégorie
+
+#### Certificat de test
+
+Le certificat est un document dont l'objectif est surtout juridique: il indique seulement le résultat d'un test et porte les signatures des parties concernées: fournisseur, client.
+
+![Documents Tests](/tests/documents_tests.png)

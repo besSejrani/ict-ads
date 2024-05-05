@@ -1,0 +1,65 @@
+# Ressources à mobiliser
+
+Les ressources nécessaires à la mise en exploitation d'une solution comprennent le personnel, les outils et le temps.
+
+Une sous-estimation des ressources requises peut entraîner des retards de déploiement aux conséquences significatives, telles que le retard d'autres projets, des pénalités financières imposées par les clients, et les coûts liés à la mobilisation des ressources en attente.
+
+## Ressources humaines
+
+Lors d'un projet, de nombreuses compétences spécialisées sont requises, telles que la sécurité, le cloud, ou des technologies spécifiques. Si une entreprise ne dispose pas de ces compétences en interne, elle doit faire appel à des intervenants externes, tels que des intérimaires ou des consultants, et planifier leur intégration.
+
+L'intégration des externes nécessite du temps ainsi que la préparation de documents essentiels pour l'exploitation. Il est important de prendre en compte que ces professionnels ne sont pas immédiatement opérationnels et que leur montée en compétence peut nécessiter un accompagnement adapté.
+
+Pour répondre aux besoins spécifiques d'un projet, il est crucial de disposer de personnes compétentes dans les domaines suivants :
+
+- Réalisation des tests, incluant la participation des utilisateurs.
+- Installation des équipements matériels, des logiciels et des réseaux.
+- Contrôle et vérification de ces installations pour s'assurer de leur bon fonctionnement.
+- Formation des utilisateurs et des équipes techniques sur les nouvelles installations.
+- Documentation complète du projet, incluant les manuels d'utilisation et les procédures techniques.
+- Fourniture d'un support technique aux utilisateurs, particulièrement sollicité après une migration ou une mise à jour majeure.
+
+## Ressources Temporelles
+
+Les ressources temporelles ne doivent pas être interrompues durant les heures d'utilisation quotidienne, car cela pourrait perturber le fonctionnement normal des utilisateurs avec leur système d'information (SI).
+
+Il est crucial de coordonner avec la direction et les utilisateurs pour définir des fenêtres de déploiement acceptables durant la journée, si aucun autre moment n'est possible.
+
+En ce qui concerne les interventions sur le réseau, elles doivent impérativement être planifiées en dehors des heures d'utilisation habituelles pour éviter de perturber le SI et de bloquer l'accès aux utilisateurs de l'entreprise.
+
+Généralement, il est préférable d'éviter de programmer des travaux en dehors des heures normales de travail, car cela engendre des coûts supplémentaires à long terme, avec des majorations pour le travail le week-end et les jours fériés, plutôt que de se limiter à quelques heures par semaine ou par mois.
+
+Il est aussi essentiel de définir à l'avance un accord de niveau de service (SLA) pour l'installation et la maintenance, afin d'éviter toute mauvaise surprise.
+
+En planifiant soigneusement et en informant les utilisateurs à l'avance, ces derniers pourront réorganiser leur temps pour se consacrer à d'autres tâches pendant les interventions.
+
+## Failles de sécurité découvertes
+
+Lorsqu'une faille de sécurité est découverte, l'entreprise se retrouve confrontée à un dilemme : maintenir la productivité de ses employés ou minimiser le risque de fuite de données.
+
+Il est essentiel d'effectuer une évaluation de la probabilité et de l'impact sur les systèmes informatiques concernés pour déterminer la priorité des actions à entreprendre.
+
+Selon le secteur d'activité de l'entreprise, il est impératif d'agir rapidement pour respecter les réglementations en matière de protection des données, telles que la LPD (Loi sur la Protection des Données) ou le RGPD (Règlement Général sur la Protection des Données).
+
+Avant d'appliquer le patch, il est important de consulter la Configuration Management Database (CMDB) pour identifier les systèmes affectés par la faille de sécurité.
+
+Entre l'annonce de la faille et la mise à disposition du correctif par le fournisseur, il est crucial de se préparer en amont. Il est recommandé d'informer les employés qu'une mise à jour importante sera effectuée dans la journée.
+
+|         | Faible          | Moyenne         | Elevée          |
+| :------ | :-------------- | :-------------- | :-------------- |
+| Faible  | Risques faibles | Risques faibles | Risques modérés |
+| Moyenen | Risques faibles | Risques modérés | Risques graves  |
+| Elevée  | Risques modérés | Risques graves  | Risques graves  |
+
+Matrice de probabilité / impact, axys x: Gravité, axys Y: Probablitié
+
+## Outils de déploiement
+
+Un déploiement effectué à l'aide d'outils spécialisés peut réduire considérablement la nécessité d'intervention humaine et le temps requis.
+
+Il existe quatre familles d'outils permettant d'automatiser les déploiements :
+
+- **Logiciels de télédistribution** : Ces outils préparent et envoient des packages d'installation non supervisés (installations silencieuses) aux systèmes sélectionnés, en mode push ou pull, selon la planification établie. Ils génèrent également des rapports et peuvent mettre à jour la CMDB. Adaptés aux parcs informatiques hétérogènes, ces logiciels sont essentiels pour les déploiements d'applications à grande échelle.
+- **Logiciels de clonage** : Ces logiciels permettent de déployer une image système complète sur un nouvel équipement ou, selon le logiciel, de mettre à jour une image déjà déployée avec un package contenant uniquement les modifications (delta release). L'image modèle (master) peut être testée aussi longtemps que nécessaire, assurant ainsi l'uniformité du parc informatique.
+- **Gestionnaires d'environnements** virtuels : Pour les systèmes virtuels, ces outils offrent des fonctionnalités similaires aux logiciels de clonage, mais avec souvent plus de rapidité. Ils permettent également de réaliser un snapshot de la configuration avant la mise à jour, facilitant la gestion des versions et des rétrogradations.
+- **Environnements de scripting** : Les systèmes d'exploitation et les principaux fournisseurs de cloud proposent des API, souvent appelées shells, qui permettent d'exécuter la plupart des opérations de configuration. À l'aide de ces API, il est possible de créer des scripts qui gèrent un déploiement de bout en bout, incluant l'installation et la configuration de toutes les composantes de la solution, dans le bon ordre, avec exécution des tests et rapport des résultats. Cette méthode, connue sous le nom d'Infrastructure as Code (IaC), permet non seulement d'automatiser les déploiements mais aussi de contrôler que les configurations en exploitation restent conformes aux configurations validées et déployées, limitant ainsi les risques de modifications non autorisées ou erronées. L'approche IaC permet également de documenter l'expertise des équipes et de réutiliser du code pour les déploiements futurs.

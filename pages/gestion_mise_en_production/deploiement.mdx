@@ -1,0 +1,59 @@
+# Déploiement et contrôle
+
+Si la planification et les tests ont été soigneusement effectués et que les intervenants du déploiement ont été correctement formés, l'étape de déploiement devrait être essentiellement une formalité. Cela implique de suivre le plan établi. Les imprévus mineurs peuvent généralement être gérés sur place par les équipes techniques, tandis que les incidents plus sérieux nécessiteront l'activation de la procédure d'annulation.
+
+Avant de commencer le déploiement en production, il est crucial de vérifier que la documentation est complète et que toutes les opérations préparatoires ont été réalisées avec succès. Il est également important de s'assurer que chaque équipe dispose des ressources nécessaires et que les circuits de communication et de validation sont établis et opérationnels.
+
+## Vérification de la documentation
+
+Avant de procéder au déploiement, il est essentiel de s'assurer que la documentation de la version est complète et inclut les éléments suivants :
+
+- Contrats de maintenance et accords de niveau de service (SLA) associés aux nouveaux équipements matériels et logiciels.
+- Certificats de licences ou autres documents attestant la possession des licences d'utilisation requises.
+- Certificats de conformité aux tests, alignés sur le plan de test stratégique et dûment signés.
+- Stratégies et procédures de sécurité spécifiques aux composants de la version à déployer.
+
+De plus, il est crucial de vérifier la disponibilité des procédures nécessaires pour :
+
+- Configurer tous les composants de la nouvelle version ainsi que les éléments de l'infrastructure existante.
+- Distribuer et installer les éléments logiciels.
+- Migrer les données, le cas échéant.
+- Livrer et installer les éléments matériels de la solution.
+- Nettoyer les supports de données et démonter les éléments obsolètes ou remplacés lors du déploiement.
+- Valider le fonctionnement du service après son déploiement.
+- Mettre à jour la Configuration Management Database (CMDB) avec les nouveaux détails de configuration.
+
+## Vérification des conditions
+
+Arrivé à ce stade, il est courant de commettre l'erreur de présumer que toutes les activités préalables ont été correctement réalisées. Cependant, il est possible que certaines de ces activités aient rencontré des obstacles ou aient été omises. C'est pourquoi il est conseillé de vérifier une dernière fois que toutes les conditions nécessaires sont réunies pour que la mise en production se déroule comme prévu.
+
+Si toutes les conditions ne sont pas remplies, il est toujours possible d'obtenir l'autorisation de procéder au déploiement, à condition que les responsables acceptent les risques supplémentaires induits. Les critères qui déterminent si l'on doit donner le feu vert ou rouge au déploiement peuvent être résumés dans le tableau suivant :
+| Elément | Indicateurs pour le feu vert | Indicateurs pour le feu rouge |
+| :-------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Version | Les exigences sont remplies, toute la documentation est complète, et un plan de rollback est préparé. | La version ne répond pas aux standards de l'organisation, il manque de la documentation, ou le personnel de support de premier et de second niveau n'est pas disponible. |
+| Environnement de production | Le personnel de support est formé, toutes les procédures d'administration de la version sont prêtes et conformes aux standards de l'organisation, les accords de service nécessaires sont en place. | Des composants matériels ou logiciels sont incompatibles avec l'environnement actuel, il manque un plan de formation pour le personnel de support, ou il n'existe pas de plan de sauvegarde adéquat. |
+| Plan de déploiement de la version | Le processus d'escalade et les contacts clés sont établis, toutes les parties prenantes ont été informées, et la disponibilité de toutes les ressources nécessaires a été confirmée. | Des points de défaillance uniques ou des opérations à haut risque sont identifiés, certains prérequis comme la disponibilité des utilisateurs pour les tests d'acceptation ne sont pas remplis, ou la documentation nécessaire pour les changements demandés et les configurations (RFC et EC) n'est pas complète. |
+
+## Moyens à fournir
+
+Chaque personne ou équipe chargée d'une partie du déploiement doit disposer des éléments suivants :
+
+- Le nouveau matériel et/ou les supports d'installation, dans la version qui a été testée et approuvée.
+- La procédure d'installation, détaillant précisément les opérations à effectuer et l'ordre dans lequel elles doivent être réalisées.
+- La documentation relative à la solution, incluant les instructions pour l'installation et le dépannage en cas de problème.
+- Les jeux de tests conçus pour valider que l'installation a été correctement réalisée.
+
+## Communication
+
+Lors d'un déploiement par lots ou lorsque certaines opérations dépendent de facteurs externes, il est crucial de mettre en place un circuit de communication efficace pour coordonner l'avancement des travaux. Les différentes équipes doivent régulièrement informer le responsable du déploiement sur l'état d'avancement de leurs tâches. Cela permet au responsable de lancer ou de retarder les opérations suivantes et, en cas de problème, d'ajuster le planning en conséquence.
+
+Si le planning n'est pas extrêmement serré, il suffit de notifier le responsable à la fin de chaque tâche. Cependant, pour les déploiements plus critiques où le timing est plus strict, il peut être judicieux de convenir d'intervalles de communication plus rapprochés. Ceci permet d'estimer plus précisément la vitesse de progression du déploiement et de vérifier l'exactitude des prévisions.
+
+## Validation
+
+Lorsqu'une installation se termine sans erreurs apparentes, l'équipe de déploiement ne peut pas pour autant assumer que tout est correct. En effet, il est crucial de vérifier que la solution fonctionne conformément à ses spécifications.
+
+Pour garantir cette conformité, il est recommandé de répéter une sélection de tests qui ont été effectués lors de la phase de test. Ces scénarios de test visent à confirmer que les fonctionnalités essentielles sont pleinement opérationnelles.
+La quantité et la rigueur des tests effectués pour valider une installation dépendent de la criticité de l'application.
+
+Les logiciels de test peuvent automatiser la répétition des tests de non-régression. Dans ce cas, il suffit de lancer les scripts préétablis, permettant ainsi une validation efficace et rapide de l'installation.

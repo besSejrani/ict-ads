@@ -1,0 +1,122 @@
+# Modèle Logique de Données
+
+## Traduction d'un MCD en un MLD
+
+Notations : on dit qu'une association binaire (entre deux entités ou réflexive)
+est de type :
+
+- 1 : 1 (un à un) si aucune des deux cardinalités maximales n'est n ;
+- 1 : n (un à plusieurs) si une des deux cardinalités maximales est n ;
+- n : m (plusieurs à plusieurs) si les deux cardinalités maximales sont
+  n.
+
+En fait, un schéma relationnel ne peut pas faire la différence entre 0,n et 1,n.
+Par contre, il peut la faire entre 0,1 et 1,1.
+
+Pour traduire un MCD en un MLD, il suffit d'appliquer cinq règles.
+
+### Règle 1
+
+Toute entité devient une table dans laquelle les attributs deviennent les
+colonnes. L'identifiant de l'entité devient un index de type UNIQUE :
+
+![MLD](/mld/1.png)
+
+### Règle 2
+
+Une association binaire de type 1 : n disparaît, au profit d'une clé étrangère
+dans la table côté 0,1 ou 1,1 qui référence la clé primaire de l'autre table.
+Cette clé étrangère ne peut pas recevoir la valeur vide si la cardinalité est
+1,1.
+
+Exemple :
+
+![MLD](/mld/2.png)
+
+Il ne devrait pas y avoir d'attribut dans une association de type 1 : n, mais s'il
+en reste, alors ils glissent vers la table côté 1.
+
+### Règle 3
+
+Une association binaire de type n : m devient une table supplémentaire,
+appelée table de jointure.
+
+Exemple :
+
+![MLD](/mld/3.png)
+
+Si l'association a des attributs, ceux-ci se retrouvent dans la table de
+jointure.
+
+Exemple :
+
+![MLD](/mld/3.1.png)
+
+On est en droit de se demander à quoi sert la colonne 'id' de la table
+'belongs' dans le premier exemple. Les enregistrements de cette table ne
+portent aucune information propre, on ne va donc pas avoir besoin de les
+rechercher.
+
+La réponse tient en deux points :
+
+- Nous ne créons pas d'exception à notre convention, ce qui la rend
+  plus facile à appliquer
+
+- Cela facilite une possibilité d'évolution intéressante : celle de
+  pouvoir tenir compte de la possibilité qu'un utilisateur rejoigne un
+  groupe, le quitte et y revienne !
+  Cela se traduirait par un contenu de la table 'belongs' de ce genre :
+
+Dans le cas où nous ne voulons gérer que l'appartenance du moment ou non
+au groupe, il faut interdire le doublon des valeurs 5 et 2 des champs
+'user_id' et 'group_id'. Cela se réalisera comme précédemment (Règle 1)
+avec un index UNIQUE.
+
+### Règle 4
+
+Si on a une association binaire de type 1 : 1 et que l'une des deux entités est
+impliquée dans une autre association, elle est traduite comme une
+association binaire de type 1 : n sauf que la clé étrangère :
+
+- Doit être unique (contrainte d'unicité : la colonne correspondante ne
+  peut prendre que des valeurs distinctes)
+
+- Peut être vide (null) si la cardinalité est 0,1 de ce côté.
+
+Si on a un côté de cardinalité 0,1 et l'autre de 1,1 , la clé étrangère va du
+côté 1,1.
+
+Si les deux côtés sont de cardinalité 0,1 ou 1,1 alors la clé étrangère peut
+être placée indifféremment dans l'une ou l'autre des deux tables.
+
+Exemple:
+
+![MLD](/mld/4.png)
+
+Remarque : dans cet exemple, le champ 'employee_id' est unique et non nul
+à cuse du 1,1 du côté de l'entité départements.
+
+### Règle 5
+
+Si on a une association binaire de type 1 : 1 et qu'aucune des deux entités
+n'est impliquée dans une autre association, on fusionne les deux entités
+dans une seule table.
+
+Exemple:
+
+![MLD](/mld/5.png)
+
+## Cartouche
+
+Afin d'éviter au maximum toute confusion, un MLD contiendra toujours dans un de ses coins
+un cartouche contenant :
+
+- Le nom du projet
+- Un titre (car le MLD peut ne représenter qu'une partie de l'ensemble)
+- Le ou les auteur(s)
+- Une indication soit de version soit de date de publication (soit les deux)
+- Le MCD (nom et version) dont il est tiré
+
+Exemple:
+
+![MLD](/mld/6.png)

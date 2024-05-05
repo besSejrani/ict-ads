@@ -1,0 +1,158 @@
+import { Steps } from "nextra/components";
+
+# Introduction
+
+## Problématiques
+
+<Steps>
+
+### Disponibilité de l'information
+
+La disponibilité des données d'un système est cruciale pour son bon fonctionnement en production.
+Plus une défaillance est découverte tard dans son processus de déploiement, plus elle est critique.
+
+### Dysfonctionnements / Perte de données
+
+Toute modification du système ou de l'un de ses composants peut provoquer une perte de données.
+
+### Adaptation du système
+
+Le système doit s'adapter aux besoins de ses utilisateurs.
+
+</Steps>
+
+## Définition
+
+Tester ce n'est pas uniquement vérifier si cela fonctionne bien, mais plutôt vérifier si l'objet ou les données sont conformes à leurs spécifications.
+
+## Spécifications
+
+Avant de pouvoir entreprendre les tests, il est essentiel d'avoir effectué au préalable une analyse des besoins, qui doit :
+
+- Délimiter le domaine d'analyse.
+- Recueillir les informations sur les besoins auprès des utilisateurs concernés du système / application.
+- Traduire ces besoins en solutions informatiques.
+
+## Erreurs
+
+Sans spécifications, il n'y a pas de tests valables.
+
+Un test ne doit pas être complexe à exécuter, ni trop long.
+
+## Erreurs éventuelles
+
+**Erreur de conception** : la fonctionnalité à tester ne répond pas aux besoins, parce que ces derniers ont été mal compris.
+
+**Erreur de réalisation** : des erreurs de conception sont introduites lors de l'implémentation due à une mauvaise compréhension des besoins.
+
+## Objectifs
+
+Tester c'est chercher l'erreur. Des erreurs, il y en aura toujours.
+
+Il est impossible de prouver l'absence d'erreurs, mais il est très probable de trouver des erreurs.
+
+L'objectif n'est pas l'absence d'erreurs, ce qui n'est pas réaliste, mais plutôt de minimiser au maximum les erreurs.
+
+## Réalité des tests
+
+Due à de grandes implémentations de fonctionnalités, à une deadline serrée ainsi qu'à un budget limité, les tests sont souvent négligés du fait du manque de temps.
+
+## Statistiques
+
+En moyenne, la répartition de l'origine des défauts se présente ainsi :
+
+- **Expression des besoins** : 13%
+- **Conception** : 25%
+- **Code** : 31%
+- **Mauvaise correction** : 15%
+- **Documentation** : 14%
+- **Gestion du projet** : 3%
+
+## Incidents
+
+**Octobre 1992** : Due à la montée en charge du système, le système de dispatching ne fonctionne plus, rendant temporairement inutiles les ambulances. Plusieurs personnes sont estimées être décédées du à cet incident.
+
+**Juin 1996** : La fusée Ariane se désintègre due à une erreur de calcul décimal. Perte estimée à 125 millions d'euros avec la perte de la sonde Mars en 1999.
+
+**Septembre 2002** : Ticket Easy connaît plusieurs grandes pannes de longue durée. Les pertes se chiffrent en millions, et l'entreprise déposera finalement le bilan en 2003.
+
+## Conséquences
+
+### Conséquences directes
+
+- Fonctionnement incorrect.
+- Performance insuffisante.
+- Sécurité insuffisante.
+- Difficulté d'utilisation.
+- Indisponibilité.
+
+### Conséquences indirectes
+
+- Mécontentement des utilisateurs.
+- Perte de productivité.
+- Dépassement du délai de mise en exploitation.
+- Dépassement du budget.
+- Retards divers dans les opérations.
+- Explosion des coûts de maintenance.
+- Perte d'image auprès du public.
+- Abandon du projet.
+
+## Éléments à tester
+
+### Le Réseau
+
+- Câblage, commutateurs, routeurs et équipements assimilés.
+- Les périphériques d'entrées et de sortie reliés au système : imprimante, scanner, écrans, lecteurs de code-barres, claviers et souris, commutateurs et téléphones IP, ...
+- Les composants matériels des ordinateurs : cartes mères, cartes réseau, cartes graphiques, disques durs, mémoire vive.
+
+### Les applications
+
+- Tout document associé aux éléments ci-dessus : spécifications techniques, manuels d'utilisation, manuels d'exploitation, dossier de conception, etc.
+
+### Types
+
+En fonction du test, celui-ci peut être dynamique ou statique :
+
+- **Dynamique** : l'objet est en fonctionnement et l'on simule son utilisation prévue.
+- **Statique** : les documents se rapportant à l'objet sont étudiés.
+
+### Distinction
+
+On distinguera les tests fonctionnels et les tests non fonctionnels :
+
+- **Fonctionnel** : les tests doivent valider les spécifications définies au préalable, le test se rapporte à ce qui a été défini en phase de conception.
+- **Non-fonctionnel** : les tests doivent vérifier la conformité définie au préalable.
+
+## Processus
+
+<Steps>
+
+### Étape 1
+
+Élaboration du cahier des charges (spécifications).
+
+### Étape 2
+
+Production des documents de projet : dictionnaire de données, modèles d'analyse et de conception, manuel de projet.
+
+### Étape 3
+
+Conception globale et détaillée.
+
+### Étape 4
+
+Conformité de chaque composant du système : par exemple de chaque module de classe au sein d'un programme.
+
+### Étape 5
+
+Interfaces entre les composants.
+
+### Étape 6
+
+Conformité de l'ensemble de l'objet réalisé.
+
+### Étape 7
+
+Intégration dans le ou les systèmes cibles.
+
+</Steps>

@@ -1,0 +1,68 @@
+fileignoreconfig:
+  - filename: Jenkinsfile
+    checksum: fb8a4bfd86502d3121b2791d9fe3f6f274836155e1c40bba6bb350de1ec0f90f
+
+  - filename: pages/Server/Configuration.mdx
+    checksum: fda7c28d58b11d90b657e5a9f89acc339348a7b1b7ff523aba38f73d7082278e
+
+  - filename: pages/Server/Security.mdx
+    checksum: 1a167c5f23cf13915af68d4525e5bb29f95f4a89ff93fdc00f918b78c9582d43
+
+  - filename: pages/Server/Testing.mdx
+    checksum: edbe9137ca72ce214efbbcffa20ee6524e075d2dd01d6db58f63d337b1998b4e
+
+  - filename: pages/Server/Security/ApplicationSecurity.mdx
+    checksum: e6206eb5a3b68726b62a839b47904b4cb2b06f20cb0168c580ca8df268c70670
+
+  - filename: pages/Server/Security/AuthenticationAuthorization.mdx
+    checksum: 2900a4b02cb2471088583edc23de1e500087ee438a769418d239abab7a334353
+
+  - filename: pages/CICD/Security/Pipeline.mdx
+    checksum: a9c80b84bdec4c6af26b173f9d2b3c2bbba503fb065e9edf26183b7f5c42d7d8
+
+  - filename: pages/Server/Api.mdx
+    checksum: 7db72b3f2efb7c2d461b81bddd06545177ef2ce870390b4013eabb2cb41a33e0
+
+  - filename: pages/Server/Performance.mdx
+    checksum: 1bbd4d7c81bc14421ec568b949c3bde60c0fe85784145a09584c7a3b5f90f514
+
+  - filename: pages/Server/Installation/Preparation.mdx
+    checksum: 14c91534fdf0579d012785ce0ccf611be745063afca2f1b671a8eda943c63668
+
+  - filename: pages/Server/Installation/Backend.mdx
+    checksum: f6c88f03bf2d4b76e8f959ec6c57f0922e34325b24ad3f7246e3ee42e5d8b4d9
+
+  - filename: pages/Server/Upload.mdx
+    checksum: 02411ca55d86747ea54dd2c6b1f751afc46a7305109dd555f3866039169081ac
+
+  - filename: pages/Server/Emails.mdx
+    checksum: dd513354519d0c743cc43b996aebfb362cf5f19a2c337fcf71351484364dc4b0
+
+  - filename: pages/Database/Caching.mdx
+    checksum: b15010f1404e591bd93203e411209277c40cf43760f33a3ddaf25ce6e031d2f0
+
+  - filename: pages/Cypress/Preparation.mdx
+    checksum: aab7f63fd4379645240bb6c724cbfe8dbc2e9a05848d81ce6ef4abc7f814d6bd
+
+  - filename: pages/Terraform/Installation.mdx
+    checksum: b03432dd7286376bc43bc37a2510b5defa5f8058020ad6062fa15c2e758a4868
+
+  - filename: pages/CICD/Security.mdx
+    checksum: d4082fb2baf3f474cd87b6a883e3bbb01cc0f058c20d6e0435a98c97345bdd78
+
+  - filename: pnpm-lock.yaml
+    checksum: ecdf39120911f7ecbcac2d463e1eb0f259fa99057560df2d53ab28e586aa7323
+  - filename: pages/gestion_mise_en_production/version.mdx
+    checksum: 208e9fa898b03297e8f40a452a8e0d3f8a4974f1d55e6d3c25aa30ef27b43afb
+  - filename: pages/tester_application/methodologie.mdx
+    checksum: 83413c35cceada3e1d1c733a39e397f2646e24827c9d36c69c7a129b7cde9d24
+  - filename: pages/glossaire.mdx
+    checksum: 849420d72b33776e06e82ec7e6809d4bdbd58bd3516a7ad82f4f47cab73bef8c
+
+allowed_patterns:
+  - disableHostKeyChecking
+
+scopeconfig:
+  - scope: node
+
+filecontentconfig: []

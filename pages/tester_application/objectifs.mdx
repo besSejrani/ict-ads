@@ -1,0 +1,87 @@
+# Objectifs des tests
+
+## Qualité
+
+Les tests doivent permettre d'améliorer et d'assurer la qualité de l'objet ou de l'application. La qualité est l'aptitude à répondre aux besoins des utilisateurs, prédéfinis au préalable dans le cahier des charges.
+
+Le choix des objectifs de test dépend étroitement du plan d'assurance qualité (PAQ) de l'organisation.
+
+- Formaliser les objectifs, indiquer les standards et procédures à respecter.
+- Réaliser des contrôles de qualité à des moments précis sur des points spécifiques.
+- Déterminer les conditions précises d'acceptation de l'objet fourni, à chaque étape.
+
+## Procédé
+
+L'activité de tests débutera dès l'initialisation du projet par la collaboration à la formalisation des objectifs et la définition des tests. Ceux-ci seront contrôlés à chaque étape afin de vérifier la réalisation des objectifs.
+
+## 11 Facteurs Qualité
+
+- **Adaptabilité** : Capacité à supporter l'ajout de fonctionnalités supplémentaires, un taux d'utilisation ou un volume de données plus important qu'initialement prévu.
+- **Confidentialité / Sécurité** : Protection contre les accès non autorisés.
+- **Couplabilité** : Capacité à communiquer avec un autre système (échange de données, appels de fonctions, etc.).
+- **Efficacité / Performance** : Taux d'utilisation des ressources matérielles telles que la puissance de calcul, volume de stockage, bande passante.
+- **Maintenabilité** : Facilité de localisation (traçabilité) et de correction des erreurs.
+- **Maniabilité** : Facilité de prise en main et d'utilisation courante par les utilisateurs.
+- **Portabilité** : Indépendance vis-à-vis de la plateforme (matériel, système d'exploitation).
+- **Réutilisabilité** : Facilité de reprise d'éléments dans d'autres projets.
+- **Robustesse / Fiabilité** : Capacité à remplir les fonctions voulues sans défaillance, y compris en cas d'événements non prévus ou non souhaités.
+- **Testabilité** : Aptitude à faciliter la vérification de la conformité par des tests.
+
+Les critères de qualité entraînent certaines exigences de conception (représentées en ligne).
+
+|                              | Adaptabilité | Confidentialité | Conformité | Couplabilité | Efficacité | Maintenabilité | Maniabilité | Portabilité | Réutilisabilité | Robustesse | Testabilité |
+| :--------------------------- | :----------: | :-------------: | :--------: | :----------: | :--------: | :------------: | :---------: | :---------: | :-------------: | :--------: | :---------: |
+| Auditabilité                 |      ✅      |                 |            |              |            |                |             |             |                 |            |             |
+| Communicabilité de l'IHM     |              |                 |            |              |            |                |     ✅      |             |                 |            |             |
+| Efficacité d'exécution       |              |                 |            |              |     ✅     |                |             |             |                 |            |             |
+| Efficacité des périphériques |              |                 |            |              |     ✅     |                |             |             |                 |            |             |
+| Efficacité mémoire           |              |                 |            |              |     ✅     |                |             |             |                 |            |             |
+| Expansibilité                |      ✅      |                 |            |              |            |                |             |             |                 |            |             |
+| Exploitabilité               |              |                 |            |              |            |                |     ✅      |             |                 |            |             |
+| Facilité d'apprentissage     |              |                 |            |              |            |                |     ✅      |             |                 |            |             |
+| Indépendance matérielle      |              |                 |            |              |            |                |             |     ✅      |                 |            |             |
+| Indépendance système         |              |                 |            |              |            |                |             |     ✅      |                 |            |             |
+| Lisibilité (clarté)          |      ✅      |                 |            |              |            |       ✅       |             |             |                 |            |     ✅      |
+| Modularité                   |      ✅      |                 |            |              |            |       ✅       |             |             |       ✅        |            |             |
+| Observabilité                |              |                 |            |              |            |       ✅       |             |             |                 |            |     ✅      |
+| Précision (exactitude)       |              |                 |     ✅     |              |            |                |             |             |                 |     ✅     |             |
+| Protection du code           |              |       ✅        |            |              |            |                |             |             |                 |            |             |
+| Protection des données       |              |       ✅        |            |              |            |                |             |             |                 |            |             |
+| Simplicité                   |      ✅      |                 |            |              |            |       ✅       |             |             |                 |            |     ✅      |
+| Standardisation              |              |                 |            |      ✅      |            |                |             |             |       ✅        |            |     ✅      |
+| Tolérance aux fautes         |              |                 |            |              |            |                |             |             |                 |     ✅     |             |
+| Traçabilité                  |      ✅      |                 |            |              |     ✅     |                |             |             |                 |            |             |
+
+## Définition Objectifs
+
+- **Objectifs qualitatifs**: Quelles sont les qualités requises pour le projet ?
+- **Objectifs quantitatifs**: Pour chaque qualité requise, comment la mesurer et quelle valeur est acceptable ?
+
+### Définir des objectifs qualitatifs
+
+| Caractéristique du système                 | Facteurs qualitatifs                      |
+| :----------------------------------------- | :---------------------------------------- |
+| Des vies humaines dépendent du traitement  | Robustesse, conformité, testabilité       |
+| Longévité                                  | Maintenabilité, adaptabilité, portabilité |
+| Traitement en temps réel                   | Efficacité, robustesse, conformité        |
+| Données à accès restreint                  | Confidentialité                           |
+| Traitement de grandes quantités de données | Efficacité, robustesse                    |
+| Interconnexion avec d'autres systèmes      | Couplabilité                              |
+| Interconnexion avec l'utilisateur final    | Maniabilité, robustesse                   |
+| Extension ultérieure envisageable          | Adaptabilité, testabilité, maintenabilité |
+| Environnement soumis à des mutations       | Portabilité                               |
+
+### Définir des objectifs quantitatifs
+
+Il n'est pas possible de prouver l'absence de défauts et il n'est pas réaliste de prétendre atteindre la fiabilité ou la sécurité absolues.
+
+Pour ces raisons, chaque objectif doit être quantifié afin que l'on puisse savoir quand un test a réussi. Deux approches peuvent être combinées :
+
+- Déterminer le pourcentage d'erreurs résiduelles admises et arrêter de tester après qu'une passe de test ait révélé un nombre de défauts correspondant à ce pourcentage.
+- Déterminer le sous-ensemble de fonctions qui devront être testées : les fonctions critiques (smoke tests) ou très utilisées sont systématiquement testées, les autres pourront faire l'objet de tests partiels.
+
+## Risque
+
+C'est le risque qui détermine le degré de qualité et de quantité qui doit être atteint pour chaque critère.
+
+Il existe cependant une exception : lorsque le système assure des fonctions liées à la sécurité des personnes, la fiabilité devient un objectif supérieur à la rentabilité.
